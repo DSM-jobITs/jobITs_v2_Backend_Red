@@ -1,0 +1,36 @@
+{
+  "name": "jobits_v2_backend_red",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "dev": "nodemon src/app.ts",
+    "start": "nodemon dist/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DSM-jobITs/jobITs_v2_Backend_Red.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DSM-jobITs/jobITs_v2_Backend_Red/issues"
+  },
+  "homepage": "https://github.com/DSM-jobITs/jobITs_v2_Backend_Red#readme",
+  "dependencies": {
+    "@types/express": "^4.17.9",
+    "@types/mysql": "^2.15.16",
+    "@types/node": "^14.14.12",
+    "@types/sequelize": "^4.28.9",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5",
+    "uuid4": "^2.0.2"
+  }
+}
