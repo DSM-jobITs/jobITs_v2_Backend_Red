@@ -18,6 +18,6 @@ app.use((err, req: Request, res: Response, next: NextFunction) => {
   res.status(404).json({ message: err.message });
 });
 
-app.listen(3000, () => {
+app.listen(3001, () => {
   console.log("Server listen at 3000 port!");
 });
