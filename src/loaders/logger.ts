@@ -47,4 +47,4 @@ logger.add(new winston.transports.Console({
   )
 }));
 
-module.exports = logger;
+export default logger;
