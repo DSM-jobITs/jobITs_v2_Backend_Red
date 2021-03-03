@@ -9,7 +9,8 @@ export class MealRepository extends Model<MealAttributes, "recuritId"> {
 MealRepository.init({
   recuritId: {
     type: DataTypes.STRING(30),
-    primaryKey: true
+    primaryKey: true,
+    field: 'recurit_id'
   },
   breakfast: {
     type: DataTypes.BOOLEAN,
