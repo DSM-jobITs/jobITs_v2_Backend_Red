@@ -1,13 +1,8 @@
 import { Model, DataTypes } from "sequelize";
 import { sequelize } from "../../loaders/database";
-import { UserAttributes, UserCreationAttributes } from "../../interfaces";
+import { UserAttributes } from "../../interfaces";
 
-export class UserRepository extends Model<UserAttributes, UserCreationAttributes>
-  implements UserAttributes {
-  public id!: string;
-  public password!: string;
-  public name!: string;
-
+export class UserRepository extends Model<UserAttributes, "id"> {
   public static async findOneById(id: string) {
     return await this.findByPk(id);
   }
