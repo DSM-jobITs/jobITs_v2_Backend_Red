@@ -1,4 +1,4 @@
-export interface EnterPriseAttributes {
+export interface EnterpriseAttributes {
   entNo: string;
   name: string;
   phone: string;
