@@ -3,7 +3,9 @@ import { sequelize } from "../../loaders/database";
 import { RecuritAttributes } from "../../interfaces";
 
 export class RecuritRepository extends Model<RecuritAttributes, "id"> {
-  
+  public static async findOneById(id: string) {
+    return await this.findByPk(id);
+  }
 }
 
 RecuritRepository.init({
