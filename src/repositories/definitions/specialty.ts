@@ -1,6 +1,6 @@
 import { Model, DataTypes } from "sequelize";
 import { sequelize } from "../../loaders/database";
-import { SpecialtyAttributes } from "../../interfaces";
+import { SpecialtyAttributes } from "../../entities";
 
 export class SpecialtyRepositroy extends Model<SpecialtyAttributes, "id"> {
   public static async findOneById(id) {
