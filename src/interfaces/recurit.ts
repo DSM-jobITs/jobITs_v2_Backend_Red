@@ -1,5 +1,3 @@
-import { Optional } from "sequelize";
-
 export interface RecuritAttribuets {
   id: string;
   reception: string | null;
