@@ -1,6 +1,6 @@
 import { Model, DataTypes } from "sequelize";
 import { sequelize } from "../../loaders/database";
-import { IntroductionAttributes } from "../../interfaces";
+import { IntroductionAttributes } from "../../entities";
 
 export class IntroductionRepository extends Model<IntroductionAttributes, "id"> {
 
@@ -22,7 +22,7 @@ IntroductionRepository.init({
     field: 'file_uuid'
   },
   entNo: {
-    type: DataTypes.STRING(12),
+    type: DataTypes.CHAR(12),
     allowNull: false,
     field: 'ent_no'
   }
