@@ -7,5 +7,3 @@ export interface WelfareAttributes {
   laptop: boolean;
   etc: string | null;
 }
-
-export interface WelfareCreationAttributes extends Optional<WelfareAttributes, "recuritId"> {}
