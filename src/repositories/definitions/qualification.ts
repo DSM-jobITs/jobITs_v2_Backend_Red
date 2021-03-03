@@ -1,6 +1,6 @@
 import { Model, DataTypes } from "sequelize";
 import { sequelize } from "../../loaders/database";
-import { QualificationAttributes } from "../../interfaces";
+import { QualificationAttributes } from "../../entities";
 
 export class QualificationRepository extends Model<QualificationAttributes, "id"> {
 
