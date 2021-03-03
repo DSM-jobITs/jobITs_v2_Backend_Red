@@ -7,5 +7,6 @@ export * from "./meal";
 export * from "./qualification";
 export * from "./recurit";
 export * from "./specialty";
+export * from "./student";
 export * from "./user";
 export * from "./welfare";
