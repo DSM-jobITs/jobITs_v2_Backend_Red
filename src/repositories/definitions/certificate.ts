@@ -1,6 +1,6 @@
 import { Model, DataTypes } from "sequelize";
 import { sequelize } from "../../loaders/database";
-import { CertificateAttributes } from "../../interfaces";
+import { CertificateAttributes } from "../../entities";
 
 export class CertificateRepository extends Model<CertificateAttributes, "id"> {
 
