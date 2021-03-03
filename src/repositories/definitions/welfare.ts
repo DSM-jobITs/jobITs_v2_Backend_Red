@@ -3,9 +3,7 @@ import { sequelize } from "../../loaders/database";
 import { WelfareAttributes } from "../../entities";
 
 export class WelfareRepository extends Model<WelfareAttributes, "recuritId"> {
-  public static async findOneById(id: string) {
-    return await this.findByPk(id);
-  }
+
 }
 
 WelfareRepository.init({
@@ -32,8 +30,7 @@ WelfareRepository.init({
     defaultValue: false
   },
   etc: {
-    type: DataTypes.STRING,
-    allowNull: true
+    type: DataTypes.STRING
   }
 }, {
   sequelize,
