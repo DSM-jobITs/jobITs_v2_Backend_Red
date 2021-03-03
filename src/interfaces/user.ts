@@ -5,5 +5,3 @@ export interface UserAttributes {
   password: string;
   name: string;
 }
-
-export interface UserCreationAttributes extends Optional<UserAttributes, "id"> {}
