@@ -1,4 +1,4 @@
-export interface RecuritAttribuets {
+export interface RecuritAttributes {
   id: string;
   reception: string | null;
   deadline: string | null;
