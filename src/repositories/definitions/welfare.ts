@@ -1,10 +1,10 @@
 import { Model, DataTypes } from "sequelize";
 import { sequelize } from "../../loaders/database";
-import { WelfareAttributes } from "../../interfaces";
+import { WelfareAttributes } from "../../entities";
 
 export class WelfareRepository extends Model<WelfareAttributes, "recuritId"> {
-  public static async findOneById(recuritId: string) {
-    return await this.findByPk(recuritId);
+  public static async findOneById(id: string) {
+    return await this.findByPk(id);
   }
 }
 
