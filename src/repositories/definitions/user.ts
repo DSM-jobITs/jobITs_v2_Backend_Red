@@ -1,6 +1,6 @@
 import { Model, DataTypes } from "sequelize";
 import { sequelize } from "../../loaders/database";
-import { UserAttributes } from "../../interfaces";
+import { UserAttributes } from "../../entities";
 
 export class UserRepository extends Model<UserAttributes, "id"> {
   public static async findOneById(id: string) {
