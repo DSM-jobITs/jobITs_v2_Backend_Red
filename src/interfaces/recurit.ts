@@ -6,7 +6,7 @@ export interface RecuritAttributes {
   startTime: string | null;
   endTime: string | null;
   salary: number | null;
-  periiod: number | null;
+  period: number | null;
   expired: boolean | null;
   personnel: number | null;
   detail: string | null;
