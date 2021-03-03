@@ -7,6 +7,10 @@ export class UserRepository extends Model<UserAttributes, UserCreationAttributes
   public id!: string;
   public password!: string;
   public name!: string;
+
+  public static async findOneById(id: string) {
+    return await this.findByPk(id);
+  }
 }
 
 UserRepository.init({
