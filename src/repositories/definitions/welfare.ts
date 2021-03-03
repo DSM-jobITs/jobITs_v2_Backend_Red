@@ -2,7 +2,7 @@ import { Model, DataTypes } from "sequelize";
 import { sequelize } from "../../loaders/database";
 import { WelfareAttributes, WelfareCreationAttributes } from "../../interfaces";
 
-class WelfareRepository extends Model<WelfareAttributes, WelfareCreationAttributes>
+export class WelfareRepository extends Model<WelfareAttributes, WelfareCreationAttributes>
   implements WelfareAttributes {
   public recuritId!: string;
   public fourMajor!: boolean;
