@@ -1,6 +1,6 @@
 import { Model, DataTypes } from "sequelize";
 import { sequelize } from "../../loaders/database";
-import { DepartAttributes } from "../../interfaces";
+import { DepartAttributes } from "../../entities";
 
 export class DepartRepository extends Model<DepartAttributes, "id"> {
 
