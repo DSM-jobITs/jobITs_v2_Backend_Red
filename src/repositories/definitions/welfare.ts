@@ -1,29 +1,10 @@
 import { Model, DataTypes } from "sequelize";
 import { sequelize } from "../../loaders/database";
-import { WelfareAttributes, WelfareCreationAttributes } from "../../interfaces";
+import { WelfareAttributes } from "../../interfaces";
 
-export class WelfareRepository extends Model<WelfareAttributes, WelfareCreationAttributes>
-  implements WelfareAttributes {
-  public recuritId!: string;
-  public fourMajor!: boolean;
-  public selfDevelop!: boolean;
-  public laptop!: boolean;
-  public etc!: string | null;
-
-  public static async createWelfare(
-    recuritId: string,
-    fourMajor: boolean,
-    selfDevelop: boolean,
-    laptop: boolean,
-    etc: string | null
-  ) {
-    await this.create({
-      recuritId,
-      fourMajor,
-      selfDevelop,
-      laptop,
-      etc
-    });
+export class WelfareRepository extends Model<WelfareAttributes, "recuritId"> {
+  public static async findOneById(recuritId: string) {
+    return await this.findByPk(recuritId);
   }
 }
 
