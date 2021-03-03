@@ -1,6 +1,6 @@
 import { Model, DataTypes } from "sequelize";
 import { sequelize } from "../../loaders/database";
-import { EnterpriseAttributes } from "../../interfaces";
+import { EnterpriseAttributes } from "../../entities";
 
 export class EnterpriseRepository extends Model<EnterpriseAttributes, "entNo"> {
 
@@ -30,7 +30,7 @@ EnterpriseRepository.init({
     allowNull: true
   },
   introduce: {
-    type: DataTypes.STRING(255),
+    type: DataTypes.STRING,
     allowNull: true
   },
   sector: {
