@@ -49,9 +49,6 @@ export class Recurit extends Model {
   })
   expired!: boolean;
 
-  @Column(DataType.INTEGER)
-  personnel!: number;
-
   @Column(DataType.STRING)
   detail!: string;
 

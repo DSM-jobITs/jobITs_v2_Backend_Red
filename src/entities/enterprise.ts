@@ -41,6 +41,9 @@ export class Enterprise extends Model {
   })
   zipCode
 
+  @Column(DataType.INTEGER)
+  personnel!: number;
+
   @HasMany(() => Recurit, {
     foreignKey: "ent_no",
     onUpdate: "CASCADE",
