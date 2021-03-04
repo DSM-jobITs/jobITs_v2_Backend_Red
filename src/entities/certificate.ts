@@ -24,6 +24,9 @@ export class Certificate extends Model {
   })
   qualificationId!: string;
 
-  @BelongsTo(() => Qualification)
+  @BelongsTo(() => Qualification, {
+    onUpdate: "CASCADE",
+    onDelete: "CASCADE"
+  })
   qualification!: Qualification;
 }
