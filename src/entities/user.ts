@@ -1,4 +1,5 @@
-import { Model, DataType, Table, Column } from "sequelize-typescript";
+import { Model, DataType, Table, Column, HasOne } from "sequelize-typescript";
+import { Student } from "./student";
 
 @Table
 export class User extends Model {
@@ -20,4 +21,11 @@ export class User extends Model {
     allowNull: false
   })
   name!: string;
+
+  @HasOne(() => Student, {
+    foreignKey: 'user_id',
+    onUpdate: "CASCADE",
+    onDelete: "CASCADE"
+  })
+  student!: Student;
 }
