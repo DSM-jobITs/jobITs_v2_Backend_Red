@@ -6,11 +6,12 @@ import { Student } from "./student";
 export class Depart extends Model {
   @Column({
     type: DataType.INTEGER,
-    primaryKey: true
+    primaryKey: true,
+    field: 'depart_id'
   })
   @Min(1)
   @Max(4)
-  id!: number;
+  departId!: number;
 
   @Column({
     type: DataType.STRING(20),
