@@ -19,6 +19,9 @@ export class Depart extends Model {
   @IsNotEmpty()
   dept!: string;
 
-  @HasMany(() => Student)
+  @HasMany(() => Student, {
+    onUpdate: "CASCADE",
+    onDelete: "CASCADE"
+  })
   students!: Student[];
 }
