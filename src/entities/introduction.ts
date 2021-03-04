@@ -31,6 +31,9 @@ export class Introduction extends Model {
   })
   entNo!: string;
 
-  @BelongsTo(() => Enterprise)
+  @BelongsTo(() => Enterprise, {
+    onUpdate: "CASCADE",
+    onDelete: "CASCADE"
+  })
   enterprise!: Enterprise;
 }
