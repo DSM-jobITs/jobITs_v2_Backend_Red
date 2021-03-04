@@ -1,4 +1,8 @@
-import { Model, DataType, Table, Column } from "sequelize-typescript";
+import { Model, DataType, Table, Column, ForeignKey, BelongsTo, HasMany } from "sequelize-typescript";
+import { Enterprise } from "./enterprise";
+import { Welfare } from "./welfare";
+import { Meal } from "./meal";
+import { Qualification } from "./qualification";
 
 @Table
 export class Recurit extends Model {
@@ -63,4 +67,39 @@ export class Recurit extends Model {
     defaultValue: 1
   })
   page!: number;
+
+  @ForeignKey(() => Enterprise)
+  @Column({
+    type: DataType.CHAR(12),
+    allowNull: false,
+    field: 'ent_no'
+  })
+  entNo!: string;
+
+  @BelongsTo(() => Enterprise, {
+    onUpdate: "CASCADE",
+    onDelete: "CASCADE"
+  })
+  enterprise!: Enterprise;
+
+  @HasMany(() => Welfare, {
+    foreignKey: 'recurit_id',
+    onUpdate: "CASCADE",
+    onDelete: "CASCADE"
+  })
+  welfares!: Welfare[];
+
+  @HasMany(() => Meal, {
+    foreignKey: 'recurit_id',
+    onUpdate: "CASCADE",
+    onDelete: "CASCADE"
+  })
+  meals!: Meal[];
+
+  @HasMany(() => Qualification, {
+    foreignKey: 'recurit_id',
+    onUpdate: "CASCADE",
+    onDelete: "CASCADE"
+  })
+  qualifications!: Qualification[];
 }
