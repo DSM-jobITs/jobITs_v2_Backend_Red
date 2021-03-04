@@ -1,7 +1,8 @@
-import { Model, DataType, Table, Column } from "sequelize-typescript";
+import { Model, DataType, Table, Column, BelongsTo } from "sequelize-typescript";
+import { Recurit } from "./recurit";
 
 @Table
-class Welfare extends Model {
+export class Welfare extends Model {
   @Column({
     type: DataType.STRING(30),
     primaryKey: true,
@@ -34,4 +35,7 @@ class Welfare extends Model {
 
   @Column(DataType.STRING)
   etc!: string;
+
+  @BelongsTo(() => Recurit, "id")
+  recurit!: Recurit
 }
