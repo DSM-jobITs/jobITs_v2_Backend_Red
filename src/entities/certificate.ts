@@ -1,14 +1,8 @@
-import {
-  Model,
-  DataType,
-  Table,
-  Column,
-  BelongsTo
-} from "sequelize-typescript";
-
+import { Model, DataType, Table, Column, BelongsTo } from "sequelize-typescript";
+import { Qualification } from "./qualification";
 
 @Table
-class Certificate extends Model {
+export class Certificate extends Model {
   @Column({
     type: DataType.STRING(30),
     primaryKey: true
@@ -27,4 +21,7 @@ class Certificate extends Model {
     field: 'qualification_id'
   })
   qualificationId!: string;
+
+  @BelongsTo(() => Qualification, "id")
+  qualification!: Qualification;
 }
