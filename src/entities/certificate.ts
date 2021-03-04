@@ -1,4 +1,4 @@
-import { Model, DataType, Table, Column, BelongsTo } from "sequelize-typescript";
+import { Model, DataType, Table, Column, ForeignKey, BelongsTo } from "sequelize-typescript";
 import { Qualification } from "./qualification";
 
 @Table
@@ -16,6 +16,7 @@ export class Certificate extends Model {
   })
   certificate!: string;
 
+  @ForeignKey(() => Qualification)
   @Column({
     type: DataType.STRING(30),
     allowNull: false,
@@ -23,10 +24,6 @@ export class Certificate extends Model {
   })
   qualificationId!: string;
 
-  @BelongsTo(() => Qualification, {
-    foreignKey: "qualification_id",
-    onUpdate: "CASCADE",
-    onDelete: "CASCADE"
-  })
+  @BelongsTo(() => Qualification)
   qualification!: Qualification;
 }
