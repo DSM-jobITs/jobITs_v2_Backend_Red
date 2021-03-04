@@ -1,12 +1,13 @@
 import { Model, DataType, Table, Column } from "sequelize-typescript";
 
 @Table
-class Specialty extends Model {
+export class Specialty extends Model {
   @Column({
     type: DataType.STRING(30),
-    primaryKey: true
+    primaryKey: true,
+    field: 'specialty_id'
   })
-  id!: string;
+  specialtyId!: string;
 
   @Column({
     type: DataType.STRING(20),
