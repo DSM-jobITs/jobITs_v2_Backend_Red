@@ -1,7 +1,9 @@
-import { Model, DataType, Table, Column } from "sequelize-typescript";
+import { Model, DataType, Table, Column, HasMany } from "sequelize-typescript";
+import { Recurit } from "./recurit";
+import { Introduction } from "./introduction";
 
 @Table
-class Enterprise extends Model {
+export class Enterprise extends Model {
   @Column({
     type: DataType.CHAR(12),
     primaryKey: true,
@@ -38,4 +40,18 @@ class Enterprise extends Model {
     field: 'zip_code'
   })
   zipCode
+
+  @HasMany(() => Recurit, {
+    foreignKey: "ent_no",
+    onUpdate: "CASCADE",
+    onDelete: "CASCADE"
+  })
+  recurits!: Recurit[];
+
+  @HasMany(() => Introduction, {
+    foreignKey: "ent_no",
+    onUpdate: "CASCADE",
+    onDelete: "CASCADE"
+  })
+  introductions!: Introduction[];
 }
