@@ -1,7 +1,10 @@
-import { Model, DataType, Table, Column } from "sequelize-typescript";
+import { Model, DataType, Table, Column, ForeignKey, BelongsTo } from "sequelize-typescript";
 import { IsMobilePhone, IsEmail } from "class-validator";
+import { Enterprise } from "./enterprise";
+
 @Table
-class Manager extends Model {
+export class Manager extends Model {
+  @ForeignKey(() => Enterprise)
   @Column({
     type: DataType.CHAR(12),
     primaryKey: true,
@@ -28,4 +31,7 @@ class Manager extends Model {
   })
   @IsEmail()
   email!: string;
+
+  @BelongsTo(() => Enterprise)
+  enterprise!: Enterprise;
 }
