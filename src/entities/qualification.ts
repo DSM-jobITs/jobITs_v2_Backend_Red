@@ -12,10 +12,7 @@ export class Qualification extends Model {
   })
   qualificationId!: string;
 
-  @Column({
-    type: DataType.INTEGER,
-    allowNull: false
-  })
+  @Column(DataType.INTEGER)
   @Min(1)
   @Max(100)
   grade!: number;
