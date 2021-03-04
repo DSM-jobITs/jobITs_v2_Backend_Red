@@ -32,6 +32,9 @@ export class Manager extends Model {
   @IsEmail()
   email!: string;
 
-  @BelongsTo(() => Enterprise)
+  @BelongsTo(() => Enterprise, {
+    onUpdate: "CASCADE",
+    onDelete: "CASCADE"
+  })
   enterprise!: Enterprise;
 }
