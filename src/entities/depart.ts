@@ -1,7 +1,9 @@
-import { Model, DataType, Table, Column, Min, Max, NotEmpty } from "sequelize-typescript";
+import { Model, DataType, Table, Column, Min, Max, HasMany } from "sequelize-typescript";
+import { IsNotEmpty } from "class-validator";
+import { Student } from "./student";
 
 @Table
-class Depart extends Model {
+export class Depart extends Model {
   @Column({
     type: DataType.INTEGER,
     primaryKey: true
@@ -14,6 +16,13 @@ class Depart extends Model {
     type: DataType.STRING(20),
     allowNull: false
   })
-  @NotEmpty
+  @IsNotEmpty()
   dept!: string;
+
+  @HasMany(() => Student, {
+    foreignKey: "depart_id",
+    onUpdate: "CASCADE",
+    onDelete: "CASCADE"
+  })
+  students!: Student[];
 }
