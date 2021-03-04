@@ -1,7 +1,7 @@
 import { Model, DataType, Table, Column } from "sequelize-typescript";
 
 @Table
-class Certificate extends Model {
+class Student extends Model {
   @Column({
     type: DataType.CHAR(4),
     primaryKey: true,
