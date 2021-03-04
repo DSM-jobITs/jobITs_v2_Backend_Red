@@ -1,7 +1,9 @@
-import { Model, DataType, Table, Column } from "sequelize-typescript";
+import { Model, DataType, Table, Column, ForeignKey, BelongsTo } from "sequelize-typescript";
+import { Recurit } from "./recurit";
 
 @Table
-class Meal extends Model {
+export class Meal extends Model {
+  @ForeignKey(() => Recurit)
   @Column({
     type: DataType.STRING(30),
     primaryKey: true,
@@ -36,4 +38,10 @@ class Meal extends Model {
     defaultValue: false
   })
   salary!: boolean;
+
+  @BelongsTo(() => Recurit, {
+    onUpdate: "CASCADE",
+    onDelete: "CASCADE"
+  })
+  recurit!: Recurit;
 }
