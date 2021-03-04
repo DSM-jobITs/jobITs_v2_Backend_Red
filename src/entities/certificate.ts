@@ -5,9 +5,10 @@ import { Qualification } from "./qualification";
 export class Certificate extends Model {
   @Column({
     type: DataType.STRING(30),
-    primaryKey: true
+    primaryKey: true,
+    field: 'certificate_id'
   })
-  id!: string;
+  certificateId!: string;
 
   @Column({
     type: DataType.STRING(20),
