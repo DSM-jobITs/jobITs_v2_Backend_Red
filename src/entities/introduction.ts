@@ -5,9 +5,10 @@ import { Enterprise } from "./enterprise";
 export class Introduction extends Model {
   @Column({
     type: DataType.STRING(30),
-    primaryKey: true
+    primaryKey: true,
+    field: 'introduction_id'
   })
-  id!: number;
+  introductionId!: number;
 
   @Column({
     type: DataType.STRING,
