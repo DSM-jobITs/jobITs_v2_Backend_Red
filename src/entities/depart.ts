@@ -19,10 +19,6 @@ export class Depart extends Model {
   @IsNotEmpty()
   dept!: string;
 
-  @HasMany(() => Student, {
-    foreignKey: "depart_id",
-    onUpdate: "CASCADE",
-    onDelete: "CASCADE"
-  })
+  @HasMany(() => Student)
   students!: Student[];
 }
