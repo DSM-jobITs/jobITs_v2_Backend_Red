@@ -23,6 +23,10 @@ export class Certificate extends Model {
   })
   qualificationId!: string;
 
-  @BelongsTo(() => Qualification, "id")
+  @BelongsTo(() => Qualification, {
+    foreignKey: "qualification_id",
+    onUpdate: "CASCADE",
+    onDelete: "CASCADE"
+  })
   qualification!: Qualification;
 }
