@@ -1,12 +1,13 @@
 import { Model, DataType, Table, Column } from "sequelize-typescript";
 
 @Table
-class Recurit extends Model {
+export class Recurit extends Model {
   @Column({
     type: DataType.STRING(30),
-    primaryKey: true
+    primaryKey: true,
+    field: 'recurit_id'
   })
-  id!: string;
+  recuritId!: string;
 
   @Column(DataType.CHAR(10))
   reception!: string;
