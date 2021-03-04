@@ -1,12 +1,13 @@
 import { Model, DataType, Table, Column, Min, Max } from "sequelize-typescript";
 
 @Table
-class Qualification extends Model {
+export class Qualification extends Model {
   @Column({
     type: DataType.STRING(30),
-    primaryKey: true
+    primaryKey: true,
+    field: 'qualification_id'
   })
-  id!: string;
+  qualificationId!: string;
 
   @Column({
     type: DataType.INTEGER,
