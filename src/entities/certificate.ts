@@ -1,4 +1,3 @@
-import { QualificationRepository } from "repositories";
 import {
   Model,
   DataType,
@@ -17,12 +16,14 @@ class Certificate extends Model {
   id!: string;
 
   @Column({
-    type: DataType.STRING(20)
+    type: DataType.STRING(20),
+    allowNull: false
   })
   certificate!: string;
 
   @Column({
     type: DataType.STRING(30),
+    allowNull: false,
     field: 'qualification_id'
   })
   qualificationId!: string;
