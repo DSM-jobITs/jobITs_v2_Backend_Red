@@ -1,7 +1,7 @@
 import { Model, DataType, Table, Column, Min, Max, NotEmpty } from "sequelize-typescript";
 
 @Table
-class Certificate extends Model {
+class Depart extends Model {
   @Column({
     type: DataType.INTEGER,
     primaryKey: true
