@@ -10,8 +10,11 @@ export class RecuritController {
     next: NextFunction
   ) {
     const recuritId = req.params.recuritId;
-    const result = await new RecuritService(new RecuritRepository(), {} as getRecuritResponse)
-      .getRecuritInfoById(recuritId);
+    const result = await new RecuritService(
+      new RecuritRepository(),
+      {} as getRecuritResponse
+      ).getRecuritInfoById(recuritId);
+    
     res.status(200).json(result);
   }
 }
