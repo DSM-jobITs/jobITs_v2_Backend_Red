@@ -2,8 +2,7 @@ import { RecruitRepository } from "../repositories";
 import { RecuritNotFound } from "../exception";
 import { getRecruitResponse } from "../interfaces";
 
-
-export class RecuritService {
+export class RecruitService {
   constructor(
     private recruitRepository: RecruitRepository,
     private recuritResponse: getRecruitResponse
