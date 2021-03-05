@@ -3,7 +3,7 @@ import { RecruitRepository } from "../repositories";
 import { getRecruitResponse } from "../interfaces";
 import { Request, Response, NextFunction } from "express";
 
-export class RecuritController {
+export class RecruitController {
   public async getRecuritInfoById(
     req: Request,
     res: Response,
