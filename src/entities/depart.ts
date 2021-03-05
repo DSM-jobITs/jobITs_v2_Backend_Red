@@ -4,13 +4,13 @@ import { Student } from "./student";
 
 @Table
 export class Depart extends Model {
+  @Min(1)
+  @Max(4)
   @Column({
     type: DataType.INTEGER,
     primaryKey: true,
     field: 'depart_id'
   })
-  @Min(1)
-  @Max(4)
   departId!: number;
 
   @Column({
