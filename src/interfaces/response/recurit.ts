@@ -1,4 +1,4 @@
-export interface getRecuritResponse {
+export interface getRecruitResponse {
   entName: string;
   entNo: string;
   deadline: string;
