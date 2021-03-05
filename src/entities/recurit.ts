@@ -5,13 +5,13 @@ import { Meal } from "./meal";
 import { Qualification } from "./qualification";
 
 @Table
-export class Recurit extends Model {
+export class Recruit extends Model {
   @Column({
     type: DataType.STRING(30),
     primaryKey: true,
-    field: 'recurit_id'
+    field: 'recruit_id'
   })
-  recuritId!: string;
+  recruit_id!: string;
 
   @Column(DataType.CHAR(10))
   reception!: string;
@@ -21,9 +21,9 @@ export class Recurit extends Model {
 
   @Column({
     type: DataType.TINYINT,
-    field: 'recurit_plan'
+    field: 'recruit_plan'
   })
-  recuritPlan!: boolean;
+  recruitPlan!: boolean;
 
   @Column({
     type: DataType.CHAR(5),
@@ -83,21 +83,21 @@ export class Recurit extends Model {
   enterprise!: Enterprise;
 
   @HasMany(() => Welfare, {
-    foreignKey: 'recurit_id',
+    foreignKey: 'recruit_id',
     onUpdate: "CASCADE",
     onDelete: "CASCADE"
   })
   welfares!: Welfare[];
 
   @HasMany(() => Meal, {
-    foreignKey: 'recurit_id',
+    foreignKey: 'recruit_id',
     onUpdate: "CASCADE",
     onDelete: "CASCADE"
   })
   meals!: Meal[];
 
   @HasMany(() => Qualification, {
-    foreignKey: 'recurit_id',
+    foreignKey: 'recruit_id',
     onUpdate: "CASCADE",
     onDelete: "CASCADE"
   })
