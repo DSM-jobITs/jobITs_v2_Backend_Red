@@ -39,5 +39,8 @@
     "uuid4": "^2.0.2",
     "winston": "^3.3.3",
     "winston-daily-rotate-file": "^4.5.0"
+  },
+  "devDependencies": {
+    "ts-node": "^9.1.1"
   }
 }
