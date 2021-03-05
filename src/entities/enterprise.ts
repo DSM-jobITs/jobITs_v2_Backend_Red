@@ -39,7 +39,7 @@ export class Enterprise extends Model {
     type: DataType.CHAR(5),
     field: 'zip_code'
   })
-  zipCode
+  zipCode!: string;
 
   @HasMany(() => Recurit, {
     foreignKey: "ent_no",
