@@ -2,7 +2,7 @@ import { Router } from "express";
 import { tryCatchMiddleware } from "../middlewares";
 import validate from "../middlewares/validation";
 import { RecuritController } from "../controllers";
-import { recuritIdSchema } from "../schemas";
+import { recruitIdSchema } from "../schemas";
 
 const router = Router();
 
@@ -13,7 +13,7 @@ export default (app: Router) => {
 
   router.get(
     '/:recuritId',
-    validate({ schema: recuritIdSchema, parameters: 'recuritId'}),
+    validate({ schema: recruitIdSchema, parameters: 'recuritId'}),
     tryCatchMiddleware.Error(recuritController.getRecuritInfoById)
   );
 };
