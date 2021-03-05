@@ -10,7 +10,7 @@ import {
 } from "../entities";
 
 export class RecuritRepository {
-  public static async getRecuritInfoById(recuritId: string) {
+  public async getRecuritInfoById(recuritId: string) {
     return await Recurit.findOne({
       attributes: [
         'ent_no',
