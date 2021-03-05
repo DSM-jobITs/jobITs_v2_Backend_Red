@@ -23,7 +23,8 @@ export class Qualification extends Model {
   @ForeignKey(() => Recurit)
   @Column({
     type: DataType.STRING(30),
-    allowNull: false
+    allowNull: false,
+    field: 'recurit_id'
   })
   recuritId!: string;
 
