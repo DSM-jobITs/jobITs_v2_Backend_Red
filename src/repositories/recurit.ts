@@ -29,19 +29,16 @@ export class RecuritRepository {
       include: [
         {
           model: Welfare,
-          as: 'welfare',
           required: true,
           attributes: ['four_major', 'self_develop', 'labtop', 'etc']
         },
         {
           model: Meal,
-          as: 'meal',
           required: true,
           attributes: ['breakfast', 'lunch', 'dinner', 'salary']
         },
         {
           model: Qualification,
-          as: 'qualification',
           attributes: ['grade'],
           include: [
             {
@@ -56,12 +53,10 @@ export class RecuritRepository {
         },
         {
           model: Enterprise,
-          as: 'entInfo',
           required: true,
           attributes: ['name', 'phone', 'establishment_date', 'sales', 'introduce', 'address'],
           include: [{
             model: Introduction,
-            as: 'file',
             required: true,
             attributes: [['original_name', 'name'], ['file_uuid', 'url']]
           }]
