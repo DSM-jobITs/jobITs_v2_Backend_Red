@@ -1,4 +1,4 @@
-import { Model, DataType, Table, Column, HasMany } from "sequelize-typescript";
+import { Model, DataType, Table, Column, HasMany, Min } from "sequelize-typescript";
 import { Recurit } from "./recurit";
 import { Introduction } from "./introduction";
 
@@ -40,6 +40,10 @@ export class Enterprise extends Model {
     field: 'zip_code'
   })
   zipCode!: string;
+
+  @Min(1)
+  @Column(DataType.INTEGER)
+  workers!: number;
 
   @HasMany(() => Recurit, {
     foreignKey: "ent_no",
