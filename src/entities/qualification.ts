@@ -26,7 +26,7 @@ export class Qualification extends Model {
     allowNull: false,
     field: 'recruit_id'
   })
-  recuritId!: string;
+  recruitId!: string;
 
   @HasMany(() => Certificate, {
     foreignKey: 'qualification_id',
