@@ -1,15 +1,15 @@
 import { Model, DataType, Table, Column, ForeignKey, BelongsTo } from "sequelize-typescript";
-import { Recurit } from "./recurit";
+import { Recruit } from "./recruit";
 
 @Table
 export class Meal extends Model {
-  @ForeignKey(() => Recurit)
+  @ForeignKey(() => Recruit)
   @Column({
     type: DataType.STRING(30),
     primaryKey: true,
-    field: 'recurit_id'
+    field: 'recruit_id'
   })
-  recuritId!: number;
+  recruitId!: number;
 
   @Column({
     type: DataType.TINYINT,
@@ -39,9 +39,9 @@ export class Meal extends Model {
   })
   salary!: boolean;
 
-  @BelongsTo(() => Recurit, {
+  @BelongsTo(() => Recruit, {
     onUpdate: "CASCADE",
     onDelete: "CASCADE"
   })
-  recurit!: Recurit;
+  recruit!: Recruit;
 }
