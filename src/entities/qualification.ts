@@ -12,12 +12,12 @@ export class Qualification extends Model {
   })
   qualificationId!: string;
 
+  @Min(1)
+  @Max(100)
   @Column({
     type: DataType.INTEGER,
     allowNull: false
   })
-  @Min(1)
-  @Max(100)
   grade!: number;
 
   @ForeignKey(() => Recurit)
