@@ -1,6 +1,7 @@
 import { Model, DataType, Table, Column, Min, Max, HasMany } from "sequelize-typescript";
 import { IsNotEmpty } from "class-validator";
 import { Student } from "./student";
+import { sequelize } from "../loaders/database";
 
 @Table
 export class Depart extends Model {
@@ -26,3 +27,10 @@ export class Depart extends Model {
   })
   students!: Student[];
 }
+
+Depart.init({
+
+}, {
+  sequelize,
+  tableName: 'depart'
+});

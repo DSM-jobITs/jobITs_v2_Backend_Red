@@ -2,6 +2,7 @@ import { Model, DataType, Table, Column, Min, Max, ForeignKey, BelongsTo, HasMan
 import { Recruit } from "./recruit";
 import { Certificate } from "./certificate";
 import { Specialty } from "./specialty";
+import { sequelize } from "../loaders/database";
 
 @Table
 export class Qualification extends Model {
@@ -48,3 +49,10 @@ export class Qualification extends Model {
   })
   recruit!: Recruit;
 }
+
+Qualification.init({
+
+}, {
+  sequelize,
+  tableName: 'qualification'
+});

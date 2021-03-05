@@ -1,5 +1,6 @@
 import { Model, DataType, Table, Column, ForeignKey, BelongsTo } from "sequelize-typescript";
 import { Qualification } from "./qualification";
+import { sequelize } from "../loaders/database";
 
 @Table
 export class Specialty extends Model {
@@ -30,3 +31,10 @@ export class Specialty extends Model {
   })
   qualification!: Qualification;
 }
+
+Specialty.init({
+
+}, {
+  sequelize,
+  tableName: 'specialty'  
+});

@@ -1,5 +1,6 @@
 import { Model, DataType, Table, Column, ForeignKey, BelongsTo } from "sequelize-typescript";
 import { Recruit } from "./recruit";
+import { sequelize } from "../loaders/database";
 
 @Table
 export class Welfare extends Model {
@@ -43,3 +44,10 @@ export class Welfare extends Model {
   })
   recruit!: Recruit
 }
+
+Welfare.init({
+
+}, {
+  sequelize,
+  tableName: 'welfare'
+})

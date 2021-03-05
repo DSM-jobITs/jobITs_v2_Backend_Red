@@ -1,6 +1,7 @@
 import { Model, DataType, Table, Column, HasMany, Min } from "sequelize-typescript";
 import { Recruit } from "./recruit";
 import { Introduction } from "./introduction";
+import { sequelize } from "../loaders/database";
 
 @Table
 export class Enterprise extends Model {
@@ -59,3 +60,10 @@ export class Enterprise extends Model {
   })
   introductions!: Introduction[];
 }
+
+Enterprise.init({
+
+}, {
+  sequelize,
+  tableName: 'enterprise'
+});

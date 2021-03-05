@@ -1,5 +1,6 @@
 import { Model, DataType, Table, Column, ForeignKey, BelongsTo } from "sequelize-typescript";
 import { Enterprise } from "./enterprise";
+import { sequelize } from "../loaders/database";
 
 @Table
 export class Introduction extends Model {
@@ -37,3 +38,10 @@ export class Introduction extends Model {
   })
   enterprise!: Enterprise;
 }
+
+Introduction.init({
+
+}, {
+  sequelize,
+  tableName: 'introduction'
+});

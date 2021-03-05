@@ -1,6 +1,7 @@
 import { Model, DataType, Table, Column, BelongsTo } from "sequelize-typescript";
 import { Depart } from "./depart";
 import { User } from "./user";
+import { sequelize } from "../loaders/database";
 
 @Table
 export class Student extends Model {
@@ -37,3 +38,10 @@ export class Student extends Model {
   })
   user!: User;
 }
+
+Student.init({
+
+}, {
+  sequelize,
+  tableName: 'student'
+});

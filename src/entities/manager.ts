@@ -1,6 +1,7 @@
 import { Model, DataType, Table, Column, ForeignKey, BelongsTo } from "sequelize-typescript";
 import { IsMobilePhone, IsEmail } from "class-validator";
 import { Enterprise } from "./enterprise";
+import { sequelize } from "../loaders/database";
 
 @Table
 export class Manager extends Model {
@@ -38,3 +39,10 @@ export class Manager extends Model {
   })
   enterprise!: Enterprise;
 }
+
+Manager.init({
+
+}, {
+  sequelize,
+  tableName: 'Manager'
+});
