@@ -10,7 +10,7 @@ import {
 } from "../entities";
 
 export class RecruitRepository {
-  public async getRecuritInfoById(recruitId: string) {
+  public async getRecruitInfoById(recruitId: string) {
     return await Recruit.findOne({
       attributes: [
         'ent_no',
