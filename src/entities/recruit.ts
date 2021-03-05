@@ -1,4 +1,5 @@
 import { Model, DataType, Table, Column, ForeignKey, BelongsTo, HasMany } from "sequelize-typescript";
+import { sequelize } from "../loaders/database";
 import { Enterprise } from "./enterprise";
 import { Welfare } from "./welfare";
 import { Meal } from "./meal";
@@ -103,3 +104,10 @@ export class Recruit extends Model {
   })
   qualifications!: Qualification[];
 }
+
+Recruit.init({
+
+}, {
+  sequelize,
+  tableName: 'recruit'
+});
