@@ -1,19 +1,19 @@
-import { RecuritRepository } from "../repositories";
+import { RecruitRepository } from "../repositories";
 import { RecuritNotFound } from "../exception";
-import { getRecuritResponse } from "../interfaces";
+import { getRecruitResponse } from "../interfaces";
 
 
 export class RecuritService {
   constructor(
-    private recuritRepository: RecuritRepository,
-    private recuritResponse: getRecuritResponse
+    private recruitRepository: RecruitRepository,
+    private recuritResponse: getRecruitResponse
   ) {}
 
-  public async getRecuritInfoById(recuritId: string): Promise<object> {
-    const recuritInfo = await this.recuritRepository.getRecuritInfoById(recuritId);
-    if (!recuritInfo) {
+  public async getRecruitInfoById(recruitId: string): Promise<object> {
+    const recruitInfo = await this.recruitRepository.getRecruitInfoById(recruitId);
+    if (!recruitInfo) {
       throw RecuritNotFound;
     }
-    return recuritInfo;
+    return recruitInfo;
   }
 }
