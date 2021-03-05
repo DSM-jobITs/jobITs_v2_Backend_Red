@@ -50,4 +50,4 @@ Welfare.init({
 }, {
   sequelize,
   tableName: 'welfare'
-})
+});
