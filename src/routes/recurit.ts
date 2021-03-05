@@ -1,19 +1,19 @@
 import { Router } from "express";
 import { tryCatchMiddleware } from "../middlewares";
 import validate from "../middlewares/validation";
-import { RecuritController } from "../controllers";
+import { RecruitController } from "../controllers";
 import { recruitIdSchema } from "../schemas";
 
 const router = Router();
 
 export default (app: Router) => {
-  const recuritController: RecuritController = new RecuritController();
+  const recuritController: RecruitController = new RecruitController();
 
-  app.use('/recurit', router);
+  app.use('/recruit', router);
 
   router.get(
-    '/:recuritId',
-    validate({ schema: recruitIdSchema, parameters: 'recuritId'}),
+    '/:recruitId',
+    validate({ schema: recruitIdSchema, parameters: 'recruitId'}),
     tryCatchMiddleware.Error(recuritController.getRecuritInfoById)
   );
 };
