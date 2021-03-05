@@ -13,7 +13,7 @@ export default (app: Router) => {
 
   router.get(
     '/:recruitId',
-    validate({ schema: recruitIdSchema, parameters: 'recruitId'}),
+    validate({ schema: recruitIdSchema }),
     tryCatchMiddleware.Error(recuritController.getRecuritInfoById)
   );
 };
