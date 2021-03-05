@@ -1,5 +1,5 @@
 import { Model, DataType, Table, Column, Min, Max, ForeignKey, BelongsTo, HasMany } from "sequelize-typescript";
-import { Recurit } from "./recurit";
+import { Recruit } from "./recruit";
 import { Certificate } from "./certificate";
 import { Specialty } from "./specialty";
 
@@ -20,11 +20,11 @@ export class Qualification extends Model {
   })
   grade!: number;
 
-  @ForeignKey(() => Recurit)
+  @ForeignKey(() => Recruit)
   @Column({
     type: DataType.STRING(30),
     allowNull: false,
-    field: 'recurit_id'
+    field: 'recruit_id'
   })
   recuritId!: string;
 
@@ -42,9 +42,9 @@ export class Qualification extends Model {
   })
   specialties!: Specialty[];
 
-  @BelongsTo(() => Recurit, {
+  @BelongsTo(() => Recruit, {
     onUpdate: "CASCADE",
     onDelete: "CASCADE"
   })
-  recurit!: Recurit;
+  recruit!: Recruit;
 }
