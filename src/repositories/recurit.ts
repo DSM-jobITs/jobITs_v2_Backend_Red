@@ -43,10 +43,12 @@ export class RecuritRepository {
           include: [
             {
               model: Specialty,
+              required: false,
               attributes: ['specialty']
             },
             {
               model: Certificate,
+              required: false,
               attributes: ['certificate']
             }
           ]
