@@ -4,17 +4,15 @@ import { Request, Response, NextFunction } from "express";
 import logger from "../loaders/logger";
 
 export default ({
-  schema,
-  parameters
+  schema
 }: {
   schema: Schema;
-  parameters: string;
 }) => async (req: Request, res: Response, next: NextFunction) => {
   try {
-    await schema.validateAsync(req.params[parameters]);
+    await schema.validateAsync(req.params);
     next();
   } catch (error) {
-    logger.error(error);
+    logger.error(error.message);
     next(BadRequest);
   }
 };
