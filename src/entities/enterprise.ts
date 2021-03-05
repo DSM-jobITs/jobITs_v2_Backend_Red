@@ -1,5 +1,5 @@
 import { Model, DataType, Table, Column, HasMany, Min } from "sequelize-typescript";
-import { Recurit } from "./recurit";
+import { Recruit } from "./recruit";
 import { Introduction } from "./introduction";
 
 @Table
@@ -45,12 +45,12 @@ export class Enterprise extends Model {
   @Column(DataType.INTEGER)
   workers!: number;
 
-  @HasMany(() => Recurit, {
+  @HasMany(() => Recruit, {
     foreignKey: "ent_no",
     onUpdate: "CASCADE",
     onDelete: "CASCADE"
   })
-  recurits!: Recurit[];
+  recruits!: Recruit[];
 
   @HasMany(() => Introduction, {
     foreignKey: "ent_no",
