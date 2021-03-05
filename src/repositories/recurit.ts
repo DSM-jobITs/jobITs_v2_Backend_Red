@@ -1,5 +1,5 @@
 import {
-  Recurit,
+  Recruit,
   Welfare,
   Meal,
   Qualification,
@@ -9,9 +9,9 @@ import {
   Introduction
 } from "../entities";
 
-export class RecuritRepository {
-  public async getRecuritInfoById(recuritId: string) {
-    return await Recurit.findOne({
+export class RecruitRepository {
+  public async getRecuritInfoById(recruitId: string) {
+    return await Recruit.findOne({
       attributes: [
         'ent_no',
         'deadline',
@@ -24,7 +24,7 @@ export class RecuritRepository {
         'reception'
       ],
       where: {
-        recuritId
+        recruitId
       },
       include: [
         {
