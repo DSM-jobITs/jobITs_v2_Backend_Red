@@ -1,10 +1,10 @@
 import { Router } from "express";
-import recurit from "./recurit";
+import recruit from "./recruit";
 
 export default () => {
   const app = Router();
   
-  recurit(app);
+  recruit(app);
 
   return app;
 };
