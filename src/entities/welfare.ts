@@ -8,12 +8,11 @@ import {
   BelongsTo
 } from "sequelize-typescript";
 import { Recruit } from "./recruit";
-import { sequelize } from "../loaders/database";
 
 @Table
 export class Welfare extends Model {
-  @PrimaryKey
   @ForeignKey(() => Recruit)
+  @PrimaryKey
   @Column({
     type: DataType.STRING(30),
     field: 'recruit_id'
@@ -49,9 +48,3 @@ export class Welfare extends Model {
   @BelongsTo(() => Recruit, "recruit_id")
   recruit!: Recruit
 }
-
-Welfare.init({}, {
-  sequelize,
-  tableName: 'welfare',
-  modelName: 'welfare'
-});
