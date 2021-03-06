@@ -1,4 +1,15 @@
-import { Model, DataType, Table, Column, Min, Max, ForeignKey, BelongsTo, HasMany } from "sequelize-typescript";
+import {
+  Model,
+  DataType,
+  Table,
+  Column,
+  PrimaryKey,
+  ForeignKey,
+  Min,
+  Max,
+  HasMany,
+  BelongsTo
+} from "sequelize-typescript";
 import { Recruit } from "./recruit";
 import { Certificate } from "./certificate";
 import { Specialty } from "./specialty";
@@ -6,9 +17,9 @@ import { sequelize } from "../loaders/database";
 
 @Table
 export class Qualification extends Model {
+  @PrimaryKey
   @Column({
     type: DataType.STRING(30),
-    primaryKey: true,
     field: 'qualification_id'
   })
   qualificationId!: string;
@@ -29,30 +40,30 @@ export class Qualification extends Model {
   })
   recruitId!: string;
 
-  @HasMany(() => Certificate, {
-    foreignKey: 'qualification_id',
-    onUpdate: "CASCADE",
-    onDelete: "CASCADE"
-  })
+  @HasMany(() => Certificate, 'qualification_id')
   certificates!: Certificate[];
 
-  @HasMany(() => Specialty, {
-    foreignKey: 'qualification_id',
-    onUpdate: "CASCADE",
-    onDelete: "CASCADE"
-  })
+  @HasMany(() => Specialty, 'qualification_id')
   specialties!: Specialty[];
 
-  @BelongsTo(() => Recruit, {
-    onUpdate: "CASCADE",
-    onDelete: "CASCADE"
-  })
+  @BelongsTo(() => Recruit, 'recurit_id')
   recruit!: Recruit;
 }
 
-Qualification.init({
-
-}, {
+Qualification.init({}, {
   sequelize,
-  tableName: 'qualification'
+  tableName: 'qualification',
+  modelName: 'qualification'
+});
+
+Qualification.hasMany(Certificate, {
+  foreignKey: 'qualification_id',
+  onUpdate: "CASCADE",
+  onDelete: "CASCADE"
+});
+
+Qualification.hasMany(Specialty, {
+  foreignKey: 'qualification_id',
+  onUpdate: "CASCADE",
+  onDelete: "CASCADE"
 });
