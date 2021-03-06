@@ -10,5 +10,11 @@ export default {
     password: process.env.DB_PASSWORD || "",
     name: process.env.DB_NAME || ""
   },
-  secertKey: process.env.JWT_SECERT || ""
+  secertKey: process.env.JWT_SECERT || "",
+  s3: {
+    name: process.env.S3_NAME || "",
+    access: process.env.S3_ACCESS || "",
+    secert: process.env.S3_SECERT || "",
+    region: process.env.S3_REGION || ""
+  }
 };
