@@ -10,7 +10,6 @@ import {
 } from "sequelize-typescript";
 import { IsNotEmpty } from "class-validator";
 import { Student } from "./student";
-import { sequelize } from "../loaders/database";
 
 @Table
 export class Depart extends Model {
@@ -33,9 +32,3 @@ export class Depart extends Model {
   @HasMany(() => Student, 'depart_id')
   students!: Student[];
 }
-
-Depart.init({}, {
-  sequelize,
-  tableName: 'depart',
-  modelName: 'depart'
-});
