@@ -7,7 +7,6 @@ import {
   HasOne
 } from "sequelize-typescript";
 import { Student } from "./student";
-import { sequelize } from "../loaders/database";
 
 @Table
 export class User extends Model {
@@ -33,9 +32,3 @@ export class User extends Model {
   @HasOne(() => Student, 'user_id')
   student!: Student;
 }
-
-User.init({}, {
-  sequelize,
-  tableName: 'user',
-  modelName: 'user'
-});
