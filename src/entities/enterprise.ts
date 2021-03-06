@@ -1,13 +1,21 @@
-import { Model, DataType, Table, Column, HasMany, Min } from "sequelize-typescript";
+import {
+  Model,
+  DataType,
+  Table,
+  Column,
+  PrimaryKey,
+  HasMany,
+  Min
+} from "sequelize-typescript";
 import { Recruit } from "./recruit";
 import { Introduction } from "./introduction";
 import { sequelize } from "../loaders/database";
 
 @Table
 export class Enterprise extends Model {
+  @PrimaryKey
   @Column({
     type: DataType.CHAR(12),
-    primaryKey: true,
     field: 'ent_no'
   })
   entNo!: string;
@@ -46,24 +54,27 @@ export class Enterprise extends Model {
   @Column(DataType.INTEGER)
   workers!: number;
 
-  @HasMany(() => Recruit, {
-    foreignKey: "ent_no",
-    onUpdate: "CASCADE",
-    onDelete: "CASCADE"
-  })
+  @HasMany(() => Recruit, 'ent_no')
   recruits!: Recruit[];
 
-  @HasMany(() => Introduction, {
-    foreignKey: "ent_no",
-    onUpdate: "CASCADE",
-    onDelete: "CASCADE"
-  })
+  @HasMany(() => Introduction, 'ent_no')
   introductions!: Introduction[];
 }
 
-Enterprise.init({
-
-}, {
+Enterprise.init({}, {
   sequelize,
-  tableName: 'enterprise'
+  tableName: 'enterprise',
+  modelName: 'enterprise'
+});
+
+Enterprise.hasMany(Recruit, {
+  foreignKey: 'ent_no',
+  onUpdate: "CASCADE",
+  onDelete: "CASCADE"
+});
+
+Enterprise.hasMany(Introduction, {
+  foreignKey: 'ent_no',
+  onUpdate: "CASCADE",
+  onDelete: "CASCADE"
 });
