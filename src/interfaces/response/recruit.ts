@@ -45,7 +45,7 @@ namespace EntInfo {
 }
 
 namespace Other {
-  type OtherKey = "personnel" | "recuritPlan" | "reception" | "file";
+  type OtherKey = "personnel" | "recruitPlan" | "reception" | "file";
   namespace File {
     type FileKey = "name" | "url";
     export type FileObject = {
