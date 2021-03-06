@@ -1,4 +1,13 @@
-import { Model, DataType, Table, Column, ForeignKey, BelongsTo, HasMany } from "sequelize-typescript";
+import { 
+  Model,
+  DataType,
+  Table,
+  Column,
+  PrimaryKey,
+  ForeignKey,
+  HasOne,
+  BelongsTo,
+} from "sequelize-typescript";
 import { sequelize } from "../loaders/database";
 import { Enterprise } from "./enterprise";
 import { Welfare } from "./welfare";
@@ -7,12 +16,12 @@ import { Qualification } from "./qualification";
 
 @Table
 export class Recruit extends Model {
+  @PrimaryKey
   @Column({
     type: DataType.STRING(30),
-    primaryKey: true,
-    field: 'recruit_id'
+    field: "recruit_id"
   })
-  recruit_id!: string;
+  recruitId!: string;
 
   @Column(DataType.CHAR(10))
   reception!: string;
@@ -77,37 +86,18 @@ export class Recruit extends Model {
   })
   entNo!: string;
 
-  @BelongsTo(() => Enterprise, {
-    onUpdate: "CASCADE",
-    onDelete: "CASCADE"
-  })
-  enterprise!: Enterprise;
-
-  @HasMany(() => Welfare, {
-    foreignKey: 'recruit_id',
-    onUpdate: "CASCADE",
-    onDelete: "CASCADE"
-  })
-  welfares!: Welfare[];
-
-  @HasMany(() => Meal, {
-    foreignKey: 'recruit_id',
-    onUpdate: "CASCADE",
-    onDelete: "CASCADE"
-  })
-  meals!: Meal[];
-
-  @HasMany(() => Qualification, {
-    foreignKey: 'recruit_id',
-    onUpdate: "CASCADE",
-    onDelete: "CASCADE"
-  })
-  qualifications!: Qualification[];
+  @HasOne(() => Welfare, "recruit_id")
+  welfare!: Welfare;
 }
 
-Recruit.init({
-
-}, {
+Recruit.init({}, {
   sequelize,
-  tableName: 'recruit'
+  tableName: "recruit",
+  modelName: "recruit"
+});
+
+Recruit.hasOne(Welfare, {
+  foreignKey: "recruit_id",
+  onUpdate: "CASCADE",
+  onDelete: "CASCADE"
 });
