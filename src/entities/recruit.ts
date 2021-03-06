@@ -6,7 +6,7 @@ import {
   PrimaryKey,
   ForeignKey,
   HasOne,
-  BelongsTo,
+  BelongsTo
 } from "sequelize-typescript";
 import { sequelize } from "../loaders/database";
 import { Enterprise } from "./enterprise";
