@@ -21,7 +21,10 @@ export class Enterprise extends Model {
   })
   entNo!: string;
 
-  @Column(DataType.STRING(30))
+  @Column({
+    type: DataType.STRING(30),
+    allowNull: false
+  })
   name!: string;
 
   @Column(DataType.CHAR(13))
