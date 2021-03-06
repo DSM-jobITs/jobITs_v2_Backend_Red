@@ -13,7 +13,7 @@ export class RecruitRepository {
   public async getRecruitInfoById(recruitId: string) {
     return await Recruit.findOne({
       attributes: [
-        "ent_no",
+        ["ent_no", "entNo"],
         "deadline",
         ["detail", "workContent"],
         "salary",
@@ -30,7 +30,14 @@ export class RecruitRepository {
         {
           model: Enterprise,
           required: true,
-          attributes: ["name", "phone", "establishment_date", "sales", "introduce", "address"],
+          attributes: [
+            "name",
+            "phone",
+            "establishment_date",
+            "sales",
+            "introduce",
+            "address"
+          ],
           include: [
             {
               model: Introduction,
