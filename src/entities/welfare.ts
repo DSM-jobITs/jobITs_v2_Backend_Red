@@ -38,7 +38,7 @@ export class Welfare extends Model {
   @Column(DataType.STRING)
   etc!: string;
 
-  @BelongsTo(() => Recruit)
+  @BelongsTo(() => Recruit, 'recruit_id')
   recruit!: Recruit
 }
 
