@@ -30,19 +30,19 @@ export class Recruit extends Model {
 
   @Column({
     type: DataType.TINYINT,
-    field: 'recruit_plan'
+    field: "recruit_plan"
   })
   recruitPlan!: boolean;
 
   @Column({
     type: DataType.CHAR(5),
-    field: 'start_time'
+    field: "start_time"
   })
   startTime!: string;
 
   @Column({
     type: DataType.CHAR(5),
-    field: 'end_time'
+    field: "end_time"
   })
   endTime!: string;
 
@@ -81,7 +81,7 @@ export class Recruit extends Model {
   @Column({
     type: DataType.CHAR(12),
     allowNull: false,
-    field: 'ent_no'
+    field: "ent_no"
   })
   entNo!: string;
 
