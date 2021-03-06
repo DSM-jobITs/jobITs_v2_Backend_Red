@@ -8,7 +8,6 @@ import {
   BelongsTo
 } from "sequelize-typescript";
 import { Qualification } from "./qualification";
-import { sequelize } from "../loaders/database";
 
 @Table
 export class Specialty extends Model {
@@ -36,9 +35,3 @@ export class Specialty extends Model {
   @BelongsTo(() => Qualification, 'qualification_id')
   qualification!: Qualification;
 }
-
-Specialty.init({}, {
-  sequelize,
-  tableName: 'specialty',
-  modelName: 'specialty'
-});
