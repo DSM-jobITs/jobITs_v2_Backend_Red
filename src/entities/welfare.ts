@@ -15,7 +15,7 @@ export class Welfare extends Model {
   @PrimaryKey
   @Column({
     type: DataType.STRING(30),
-    field: 'recruit_id'
+    field: "recruit_id"
   })
   recruitId!: string;
 
@@ -23,7 +23,7 @@ export class Welfare extends Model {
     type: DataType.TINYINT,
     allowNull: false,
     defaultValue: false,
-    field: 'four_major'
+    field: "four_major"
   })
   fourMajor!: boolean;
 
@@ -31,7 +31,7 @@ export class Welfare extends Model {
     type: DataType.TINYINT,
     allowNull: false,
     defaultValue: false,
-    field: 'self_develop'
+    field: "self_develop"
   })
   selfDevelop!: boolean;
 
