@@ -1,4 +1,13 @@
-import { Model, DataType, Table, Column, Min, Max, HasMany } from "sequelize-typescript";
+import {
+  Model,
+  DataType,
+  Table,
+  Column,
+  PrimaryKey,
+  Min,
+  Max,
+  HasMany
+} from "sequelize-typescript";
 import { IsNotEmpty } from "class-validator";
 import { Student } from "./student";
 import { sequelize } from "../loaders/database";
@@ -7,9 +16,9 @@ import { sequelize } from "../loaders/database";
 export class Depart extends Model {
   @Min(1)
   @Max(4)
+  @PrimaryKey
   @Column({
     type: DataType.INTEGER,
-    primaryKey: true,
     field: 'depart_id'
   })
   departId!: number;
@@ -21,16 +30,18 @@ export class Depart extends Model {
   @IsNotEmpty()
   dept!: string;
 
-  @HasMany(() => Student, {
-    onUpdate: "CASCADE",
-    onDelete: "CASCADE"
-  })
+  @HasMany(() => Student, 'depart_id')
   students!: Student[];
 }
 
-Depart.init({
-
-}, {
+Depart.init({}, {
   sequelize,
-  tableName: 'depart'
+  tableName: 'depart',
+  modelName: 'depart'
+});
+
+Depart.hasOne(Student, {
+  foreignKey: 'depart_id',
+  onUpdate: "CASCADE",
+  onDelete: "CASCADE"
 });
