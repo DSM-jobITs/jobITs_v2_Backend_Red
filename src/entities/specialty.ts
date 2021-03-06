@@ -1,12 +1,20 @@
-import { Model, DataType, Table, Column, ForeignKey, BelongsTo } from "sequelize-typescript";
+import {
+  Model,
+  DataType,
+  Table,
+  Column,
+  PrimaryKey,
+  ForeignKey,
+  BelongsTo
+} from "sequelize-typescript";
 import { Qualification } from "./qualification";
 import { sequelize } from "../loaders/database";
 
 @Table
 export class Specialty extends Model {
+  @PrimaryKey
   @Column({
     type: DataType.STRING(30),
-    primaryKey: true,
     field: 'specialty_id'
   })
   specialtyId!: string;
@@ -25,16 +33,12 @@ export class Specialty extends Model {
   })
   qualificationId!: string;
 
-  @BelongsTo(() => Qualification, {
-    onUpdate: "CASCADE",
-    onDelete: "CASCADE"
-  })
+  @BelongsTo(() => Qualification, 'qualification_id')
   qualification!: Qualification;
 }
 
-Specialty.init({
-
-}, {
+Specialty.init({}, {
   sequelize,
-  tableName: 'specialty'  
+  tableName: 'specialty',
+  modelName: 'specialty'
 });
