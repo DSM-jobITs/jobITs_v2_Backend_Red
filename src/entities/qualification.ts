@@ -46,7 +46,7 @@ export class Qualification extends Model {
   @HasMany(() => Specialty, 'qualification_id')
   specialties!: Specialty[];
 
-  @BelongsTo(() => Recruit, 'recurit_id')
+  @BelongsTo(() => Recruit, 'recruit_id')
   recruit!: Recruit;
 }
 
@@ -56,14 +56,14 @@ Qualification.init({}, {
   modelName: 'qualification'
 });
 
-Qualification.hasMany(Certificate, {
-  foreignKey: 'qualification_id',
-  onUpdate: "CASCADE",
-  onDelete: "CASCADE"
-});
+// Qualification.hasMany(Certificate, {
+//   foreignKey: 'qualification_id',
+//   onUpdate: "CASCADE",
+//   onDelete: "CASCADE"
+// });
 
-Qualification.hasMany(Specialty, {
-  foreignKey: 'qualification_id',
-  onUpdate: "CASCADE",
-  onDelete: "CASCADE"
-});
+// Qualification.hasMany(Specialty, {
+//   foreignKey: 'qualification_id',
+//   onUpdate: "CASCADE",
+//   onDelete: "CASCADE"
+// });
