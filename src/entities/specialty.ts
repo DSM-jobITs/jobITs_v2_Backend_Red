@@ -14,7 +14,7 @@ export class Specialty extends Model {
   @PrimaryKey
   @Column({
     type: DataType.STRING(30),
-    field: 'specialty_id'
+    field: "specialty_id"
   })
   specialtyId!: string;
 
@@ -28,10 +28,10 @@ export class Specialty extends Model {
   @Column({
     type: DataType.STRING(30),
     allowNull: false,
-    field: 'qualification_id'
+    field: "qualification_id"
   })
   qualificationId!: string;
 
-  @BelongsTo(() => Qualification, 'qualification_id')
+  @BelongsTo(() => Qualification, "qualification_id")
   qualification!: Qualification;
 }
