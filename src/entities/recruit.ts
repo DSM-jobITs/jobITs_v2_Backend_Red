@@ -88,16 +88,19 @@ export class Recruit extends Model {
 
   @HasOne(() => Welfare, "recruit_id")
   welfare!: Welfare;
+
+  @HasOne(() => Meal, "recruit_id")
+  meal!: Meal;
+
+  @HasOne(() => Qualification, "recruit_id")
+  qualification!: Qualification;
+
+  @BelongsTo(() => Enterprise, "ent_no")
+  enterprise!: Enterprise;
 }
 
 Recruit.init({}, {
   sequelize,
   tableName: "recruit",
   modelName: "recruit"
-});
-
-Recruit.hasOne(Welfare, {
-  foreignKey: "recruit_id",
-  onUpdate: "CASCADE",
-  onDelete: "CASCADE"
 });
