@@ -18,7 +18,7 @@ export class Depart extends Model {
   @PrimaryKey
   @Column({
     type: DataType.INTEGER,
-    field: 'depart_id'
+    field: "depart_id"
   })
   departId!: number;
 
@@ -29,6 +29,6 @@ export class Depart extends Model {
   @IsNotEmpty()
   dept!: string;
 
-  @HasMany(() => Student, 'depart_id')
+  @HasMany(() => Student, "depart_id")
   students!: Student[];
 }
