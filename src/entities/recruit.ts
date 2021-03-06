@@ -8,7 +8,6 @@ import {
   HasOne,
   BelongsTo
 } from "sequelize-typescript";
-import { sequelize } from "../loaders/database";
 import { Enterprise } from "./enterprise";
 import { Welfare } from "./welfare";
 import { Meal } from "./meal";
@@ -98,9 +97,3 @@ export class Recruit extends Model {
   @BelongsTo(() => Enterprise, "ent_no")
   enterprise!: Enterprise;
 }
-
-Recruit.init({}, {
-  sequelize,
-  tableName: "recruit",
-  modelName: "recruit"
-});
