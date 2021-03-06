@@ -1,15 +1,23 @@
-import { Model, DataType, Table, Column, ForeignKey, BelongsTo } from "sequelize-typescript";
+import {
+  Model,
+  DataType,
+  Table,
+  Column,
+  PrimaryKey,
+  ForeignKey,
+  BelongsTo
+} from "sequelize-typescript";
 import { Recruit } from "./recruit";
 import { sequelize } from "../loaders/database";
 
 @Table
 export class Welfare extends Model {
+  @PrimaryKey
+  @ForeignKey(() => Recruit)
   @Column({
     type: DataType.STRING(30),
-    primaryKey: true,
     field: 'recruit_id'
   })
-  @ForeignKey(() => Recruit)
   recruitId!: string;
 
   @Column({
@@ -38,7 +46,7 @@ export class Welfare extends Model {
   @Column(DataType.STRING)
   etc!: string;
 
-  @BelongsTo(() => Recruit, 'recruit_id')
+  @BelongsTo(() => Recruit, "recruit_id")
   recruit!: Recruit
 }
 
