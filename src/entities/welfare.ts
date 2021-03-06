@@ -4,12 +4,12 @@ import { sequelize } from "../loaders/database";
 
 @Table
 export class Welfare extends Model {
-  @ForeignKey(() => Recruit)
   @Column({
     type: DataType.STRING(30),
     primaryKey: true,
     field: 'recruit_id'
   })
+  @ForeignKey(() => Recruit)
   recruitId!: string;
 
   @Column({
@@ -38,16 +38,12 @@ export class Welfare extends Model {
   @Column(DataType.STRING)
   etc!: string;
 
-  @BelongsTo(() => Recruit, {
-    onUpdate: "CASCADE",
-    onDelete: "CASCADE"
-  })
+  @BelongsTo(() => Recruit)
   recruit!: Recruit
 }
 
-Welfare.init({
-
-}, {
+Welfare.init({}, {
   sequelize,
-  tableName: 'welfare'
+  tableName: 'welfare',
+  modelName: 'welfare'
 });
