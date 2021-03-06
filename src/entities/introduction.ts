@@ -1,12 +1,20 @@
-import { Model, DataType, Table, Column, ForeignKey, BelongsTo } from "sequelize-typescript";
+import {
+  Model,
+  DataType,
+  Table,
+  Column,
+  PrimaryKey,
+  ForeignKey,
+  BelongsTo
+} from "sequelize-typescript";
 import { Enterprise } from "./enterprise";
 import { sequelize } from "../loaders/database";
 
 @Table
 export class Introduction extends Model {
+  @PrimaryKey
   @Column({
     type: DataType.STRING(30),
-    primaryKey: true,
     field: 'introduction_id'
   })
   introductionId!: number;
@@ -32,16 +40,12 @@ export class Introduction extends Model {
   })
   entNo!: string;
 
-  @BelongsTo(() => Enterprise, {
-    onUpdate: "CASCADE",
-    onDelete: "CASCADE"
-  })
+  @BelongsTo(() => Enterprise, 'ent_no')
   enterprise!: Enterprise;
 }
 
-Introduction.init({
-
-}, {
+Introduction.init({}, {
   sequelize,
-  tableName: 'introduction'
+  tableName: 'introduction',
+  modelName: 'introduction'
 });
