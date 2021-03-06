@@ -13,7 +13,7 @@ export class User extends Model {
   @PrimaryKey
   @Column({
     type: DataType.STRING(15),
-    field: 'user_id'
+    field: "user_id"
   })
   userId!: string;
 
@@ -29,6 +29,6 @@ export class User extends Model {
   })
   name!: string;
 
-  @HasOne(() => Student, 'user_id')
+  @HasOne(() => Student, "user_id")
   student!: Student;
 }
