@@ -39,9 +39,3 @@ Depart.init({}, {
   tableName: 'depart',
   modelName: 'depart'
 });
-
-Depart.hasOne(Student, {
-  foreignKey: 'depart_id',
-  onUpdate: "CASCADE",
-  onDelete: "CASCADE"
-});

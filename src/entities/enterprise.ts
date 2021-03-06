@@ -71,21 +71,3 @@ Enterprise.init({}, {
   tableName: 'enterprise',
   modelName: 'enterprise'
 });
-
-Enterprise.hasMany(Recruit, {
-  foreignKey: 'ent_no',
-  onUpdate: "CASCADE",
-  onDelete: "CASCADE"
-});
-
-Enterprise.hasMany(Introduction, {
-  foreignKey: 'ent_no',
-  onUpdate: "CASCADE",
-  onDelete: "CASCADE"
-});
-
-Enterprise.hasOne(Manager, {
-  foreignKey: 'ent_no',
-  onUpdate: "CASCADE",
-  onDelete: "CASCADE"
-});
