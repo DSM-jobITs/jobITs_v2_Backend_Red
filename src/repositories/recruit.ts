@@ -18,10 +18,11 @@ export class RecruitRepository {
         "detail",
         "salary",
         "period",
-        "start_time",
-        "end_time",
+        ["start_time", "startTime"],
+        ["end_time", "endTime"],
         "personnel",
-        "reception"
+        "reception",
+        ["recruit_plan", "recruitPlan"]
       ],
       where: {
         recruitId
@@ -33,10 +34,11 @@ export class RecruitRepository {
           attributes: [
             "name",
             "phone",
-            "establishment_date",
+            ["establishment_date", "establishmentDate"],
             "sales",
             "introduce",
-            "address"
+            "address",
+            "workers"
           ],
           include: [
             {
@@ -71,7 +73,12 @@ export class RecruitRepository {
         {
           model: Welfare,
           required: true,
-          attributes: ["four_major", "self_develop", "laptop", "etc"]
+          attributes: [
+            ["four_major", "fourMajor"],
+            ["self_develop", "selfDevelop"],
+            "laptop",
+            "etc"
+          ]
         }
       ]
     });
