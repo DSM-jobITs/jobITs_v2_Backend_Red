@@ -20,28 +20,28 @@ export class Meal extends Model {
   recruitId!: number;
 
   @Column({
-    type: DataType.TINYINT,
+    type: DataType.BOOLEAN,
     allowNull: false,
     defaultValue: false
   })
   breakfast!: boolean;
 
   @Column({
-    type: DataType.TINYINT,
+    type: DataType.BOOLEAN,
     allowNull: false,
     defaultValue: false
   })
   lunch!: boolean;
 
   @Column({
-    type: DataType.TINYINT,
+    type: DataType.BOOLEAN,
     allowNull: false,
     defaultValue: false
   })
   dinner!: boolean;
 
   @Column({
-    type: DataType.TINYINT,
+    type: DataType.BOOLEAN,
     allowNull: false,
     defaultValue: false
   })
