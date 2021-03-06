@@ -1,12 +1,20 @@
-import { Model, DataType, Table, Column, ForeignKey, BelongsTo } from "sequelize-typescript";
+import { 
+  Model,
+  DataType,
+  Table,
+  Column,
+  PrimaryKey,
+  ForeignKey,
+  BelongsTo
+} from "sequelize-typescript";
 import { Qualification } from "./qualification";
 import { sequelize } from "../loaders/database";
 
 @Table
 export class Certificate extends Model {
+  @PrimaryKey
   @Column({
     type: DataType.STRING(30),
-    primaryKey: true,
     field: 'certificate_id'
   })
   certificateId!: string;
@@ -25,16 +33,12 @@ export class Certificate extends Model {
   })
   qualificationId!: string;
 
-  @BelongsTo(() => Qualification, {
-    onUpdate: "CASCADE",
-    onDelete: "CASCADE"
-  })
+  @BelongsTo(() => Qualification, 'qualification_id')
   qualification!: Qualification;
 }
 
-Certificate.init({
-
-}, {
+Certificate.init({}, {
   sequelize,
-  tableName: 'certificate'
+  tableName: 'certificate',
+  modelName: 'certificate'
 });
