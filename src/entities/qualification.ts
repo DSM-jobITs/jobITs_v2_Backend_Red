@@ -13,7 +13,6 @@ import {
 import { Recruit } from "./recruit";
 import { Certificate } from "./certificate";
 import { Specialty } from "./specialty";
-import { sequelize } from "../loaders/database";
 
 @Table
 export class Qualification extends Model {
@@ -49,9 +48,3 @@ export class Qualification extends Model {
   @BelongsTo(() => Recruit, 'recruit_id')
   recruit!: Recruit;
 }
-
-Qualification.init({}, {
-  sequelize,
-  tableName: 'qualification',
-  modelName: 'qualification'
-});
