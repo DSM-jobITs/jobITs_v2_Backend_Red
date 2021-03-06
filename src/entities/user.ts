@@ -1,12 +1,19 @@
-import { Model, DataType, Table, Column, HasOne } from "sequelize-typescript";
+import {
+  Model,
+  DataType,
+  Table,
+  Column,
+  PrimaryKey,
+  HasOne
+} from "sequelize-typescript";
 import { Student } from "./student";
 import { sequelize } from "../loaders/database";
 
 @Table
 export class User extends Model {
+  @PrimaryKey
   @Column({
     type: DataType.STRING(15),
-    primaryKey: true,
     field: 'user_id'
   })
   userId!: string;
@@ -23,17 +30,18 @@ export class User extends Model {
   })
   name!: string;
 
-  @HasOne(() => Student, {
-    foreignKey: 'user_id',
-    onUpdate: "CASCADE",
-    onDelete: "CASCADE"
-  })
+  @HasOne(() => Student, 'user_id')
   student!: Student;
 }
 
-User.init({
-
-}, {
+User.init({}, {
   sequelize,
-  tableName: 'user'
+  tableName: 'user',
+  modelName: 'user'
+});
+
+User.hasOne(Student, {
+  foreignKey: 'user_id',
+  onUpdate: "CASCADE",
+  onDelete: "CASCADE"
 });
