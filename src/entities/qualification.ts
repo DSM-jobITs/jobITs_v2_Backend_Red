@@ -55,15 +55,3 @@ Qualification.init({}, {
   tableName: 'qualification',
   modelName: 'qualification'
 });
-
-// Qualification.hasMany(Certificate, {
-//   foreignKey: 'qualification_id',
-//   onUpdate: "CASCADE",
-//   onDelete: "CASCADE"
-// });
-
-// Qualification.hasMany(Specialty, {
-//   foreignKey: 'qualification_id',
-//   onUpdate: "CASCADE",
-//   onDelete: "CASCADE"
-// });

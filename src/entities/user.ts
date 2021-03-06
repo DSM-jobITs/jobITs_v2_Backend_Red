@@ -39,9 +39,3 @@ User.init({}, {
   tableName: 'user',
   modelName: 'user'
 });
-
-User.hasOne(Student, {
-  foreignKey: 'user_id',
-  onUpdate: "CASCADE",
-  onDelete: "CASCADE"
-});
