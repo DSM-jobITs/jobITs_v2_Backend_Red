@@ -29,7 +29,7 @@ export class Recruit extends Model {
   deadline!: string;
 
   @Column({
-    type: DataType.TINYINT,
+    type: DataType.BOOLEAN,
     field: "recruit_plan"
   })
   recruitPlan!: boolean;
@@ -53,7 +53,7 @@ export class Recruit extends Model {
   period!: number;
 
   @Column({
-    type: DataType.TINYINT,
+    type: DataType.BOOLEAN,
     defaultValue: false
   })
   expired!: boolean;
@@ -65,7 +65,7 @@ export class Recruit extends Model {
   detail!: string;
 
   @Column({
-    type: DataType.TINYINT,
+    type: DataType.BOOLEAN,
     defaultValue: false
   })
   writing!: boolean;
