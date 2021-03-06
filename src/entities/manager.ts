@@ -1,14 +1,22 @@
-import { Model, DataType, Table, Column, ForeignKey, BelongsTo } from "sequelize-typescript";
+import {
+  Model,
+  DataType,
+  Table,
+  Column,
+  PrimaryKey,
+  ForeignKey,
+  BelongsTo
+} from "sequelize-typescript";
 import { IsMobilePhone, IsEmail } from "class-validator";
 import { Enterprise } from "./enterprise";
 import { sequelize } from "../loaders/database";
 
 @Table
 export class Manager extends Model {
+  @PrimaryKey
   @ForeignKey(() => Enterprise)
   @Column({
     type: DataType.CHAR(12),
-    primaryKey: true,
     field: 'ent_no'
   })
   entNo!: string;
@@ -33,16 +41,12 @@ export class Manager extends Model {
   @IsEmail()
   email!: string;
 
-  @BelongsTo(() => Enterprise, {
-    onUpdate: "CASCADE",
-    onDelete: "CASCADE"
-  })
+  @BelongsTo(() => Enterprise, 'ent_no')
   enterprise!: Enterprise;
 }
 
-Manager.init({
-
-}, {
+Manager.init({}, {
   sequelize,
-  tableName: 'Manager'
+  tableName: 'manager',
+  modelName: 'manager'
 });
