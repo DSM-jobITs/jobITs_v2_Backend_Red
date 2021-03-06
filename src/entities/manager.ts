@@ -16,7 +16,7 @@ export class Manager extends Model {
   @ForeignKey(() => Enterprise)
   @Column({
     type: DataType.CHAR(12),
-    field: 'ent_no'
+    field: "ent_no"
   })
   entNo!: string;
 
@@ -40,6 +40,6 @@ export class Manager extends Model {
   @IsEmail()
   email!: string;
 
-  @BelongsTo(() => Enterprise, 'ent_no')
+  @BelongsTo(() => Enterprise, "ent_no")
   enterprise!: Enterprise;
 }
