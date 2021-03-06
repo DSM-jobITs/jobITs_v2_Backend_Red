@@ -1,13 +1,21 @@
-import { Model, DataType, Table, Column, ForeignKey, BelongsTo } from "sequelize-typescript";
+import {
+  Model,
+  DataType,
+  Table,
+  Column,
+  PrimaryKey,
+  ForeignKey,
+  BelongsTo
+} from "sequelize-typescript";
 import { Recruit } from "./recruit";
 import { sequelize } from "../loaders/database";
 
 @Table
 export class Meal extends Model {
+  @PrimaryKey
   @ForeignKey(() => Recruit)
   @Column({
     type: DataType.STRING(30),
-    primaryKey: true,
     field: 'recruit_id'
   })
   recruitId!: number;
@@ -40,16 +48,12 @@ export class Meal extends Model {
   })
   salary!: boolean;
 
-  @BelongsTo(() => Recruit, {
-    onUpdate: "CASCADE",
-    onDelete: "CASCADE"
-  })
+  @BelongsTo(() => Recruit, 'recruit_id')
   recruit!: Recruit;
 }
 
-Meal.init({
-
-}, {
+Meal.init({}, {
   sequelize,
-  tableName: 'meal'
+  tableName: 'meal',
+  modelName: 'meal'
 });
