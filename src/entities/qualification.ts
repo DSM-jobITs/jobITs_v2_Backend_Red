@@ -19,7 +19,7 @@ export class Qualification extends Model {
   @PrimaryKey
   @Column({
     type: DataType.STRING(30),
-    field: 'qualification_id'
+    field: "qualification_id"
   })
   qualificationId!: string;
 
@@ -35,16 +35,16 @@ export class Qualification extends Model {
   @Column({
     type: DataType.STRING(30),
     allowNull: false,
-    field: 'recruit_id'
+    field: "recruit_id"
   })
   recruitId!: string;
 
-  @HasMany(() => Certificate, 'qualification_id')
+  @HasMany(() => Certificate, "qualification_id")
   certificates!: Certificate[];
 
-  @HasMany(() => Specialty, 'qualification_id')
+  @HasMany(() => Specialty, "qualification_id")
   specialties!: Specialty[];
 
-  @BelongsTo(() => Recruit, 'recruit_id')
+  @BelongsTo(() => Recruit, "recruit_id")
   recruit!: Recruit;
 }
