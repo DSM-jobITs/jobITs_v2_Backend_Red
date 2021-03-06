@@ -17,12 +17,6 @@ export const sequelize = new Sequelize(
     dialectOptions: {
       dateStrings: true,
       typeCast: true
-    },
-    pool: {
-      max: 30,
-      min: 0,
-      acquire: 30000,
-      idle: 10000
     }
   }
 );
