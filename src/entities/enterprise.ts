@@ -5,10 +5,12 @@ import {
   Column,
   PrimaryKey,
   HasMany,
-  Min
+  HasOne,
+  Min,
 } from "sequelize-typescript";
 import { Recruit } from "./recruit";
 import { Introduction } from "./introduction";
+import { Manager } from "./manager";
 import { sequelize } from "../loaders/database";
 
 @Table
@@ -59,6 +61,9 @@ export class Enterprise extends Model {
 
   @HasMany(() => Introduction, 'ent_no')
   introductions!: Introduction[];
+
+  @HasOne(() => Manager, 'ent_no')
+  manager!: Manager;
 }
 
 Enterprise.init({}, {
@@ -74,6 +79,12 @@ Enterprise.hasMany(Recruit, {
 });
 
 Enterprise.hasMany(Introduction, {
+  foreignKey: 'ent_no',
+  onUpdate: "CASCADE",
+  onDelete: "CASCADE"
+});
+
+Enterprise.hasOne(Manager, {
   foreignKey: 'ent_no',
   onUpdate: "CASCADE",
   onDelete: "CASCADE"
