@@ -17,7 +17,7 @@ export class Enterprise extends Model {
   @PrimaryKey
   @Column({
     type: DataType.CHAR(12),
-    field: 'ent_no'
+    field: "ent_no"
   })
   entNo!: string;
 
@@ -29,7 +29,7 @@ export class Enterprise extends Model {
 
   @Column({
     type: DataType.STRING(15),
-    field: 'establishment_date'
+    field: "establishment_date"
   })
   establishmentDate!: string;
 
@@ -47,7 +47,7 @@ export class Enterprise extends Model {
 
   @Column({
     type: DataType.CHAR(5),
-    field: 'zip_code'
+    field: "zip_code"
   })
   zipCode!: string;
 
@@ -55,12 +55,12 @@ export class Enterprise extends Model {
   @Column(DataType.INTEGER)
   workers!: number;
 
-  @HasMany(() => Recruit, 'ent_no')
+  @HasMany(() => Recruit, "ent_no")
   recruits!: Recruit[];
 
-  @HasMany(() => Introduction, 'ent_no')
+  @HasMany(() => Introduction, "ent_no")
   introductions!: Introduction[];
 
-  @HasOne(() => Manager, 'ent_no')
+  @HasOne(() => Manager, "ent_no")
   manager!: Manager;
 }
