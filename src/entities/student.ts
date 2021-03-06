@@ -1,13 +1,20 @@
-import { Model, DataType, Table, Column, BelongsTo } from "sequelize-typescript";
+import {
+  Model,
+  DataType,
+  Table,
+  Column,
+  PrimaryKey,
+  BelongsTo
+} from "sequelize-typescript";
 import { Depart } from "./depart";
 import { User } from "./user";
 import { sequelize } from "../loaders/database";
 
 @Table
 export class Student extends Model {
+  @PrimaryKey
   @Column({
     type: DataType.CHAR(4),
-    primaryKey: true,
     field: 'std_no'
   })
   stdNo!: string;
@@ -24,24 +31,15 @@ export class Student extends Model {
   })
   userId!: string;
   
-  @BelongsTo(() => Depart, {
-    foreignKey: 'depart_id',
-    onUpdate: "CASCADE",
-    onDelete: "CASCADE"
-  })
+  @BelongsTo(() => Depart, 'depart_id')
   depart!: Depart;
 
-  @BelongsTo(() => User, {
-    foreignKey: 'user_id',
-    onUpdate: "CASCADE",
-    onDelete: "CASCADE"
-  })
+  @BelongsTo(() => User, 'user_id')
   user!: User;
 }
 
-Student.init({
-
-}, {
+Student.init({}, {
   sequelize,
-  tableName: 'student'
+  tableName: 'student',
+  modelName: 'student'
 });
