@@ -15,7 +15,7 @@ export class Certificate extends Model {
   @PrimaryKey
   @Column({
     type: DataType.STRING(30),
-    field: 'certificate_id'
+    field: "certificate_id"
   })
   certificateId!: string;
 
@@ -29,16 +29,16 @@ export class Certificate extends Model {
   @Column({
     type: DataType.STRING(30),
     allowNull: false,
-    field: 'qualification_id'
+    field: "qualification_id"
   })
   qualificationId!: string;
 
-  @BelongsTo(() => Qualification, 'qualification_id')
+  @BelongsTo(() => Qualification, "qualification_id")
   qualification!: Qualification;
 }
 
 Certificate.init({}, {
   sequelize,
-  tableName: 'certificate',
-  modelName: 'certificate'
+  tableName: "certificate",
+  modelName: "certificate"
 });
