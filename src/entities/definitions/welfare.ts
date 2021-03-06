@@ -20,7 +20,7 @@ export class Welfare extends Model {
   recruitId!: string;
 
   @Column({
-    type: DataType.TINYINT,
+    type: DataType.BOOLEAN,
     allowNull: false,
     defaultValue: false,
     field: "four_major"
@@ -28,7 +28,7 @@ export class Welfare extends Model {
   fourMajor!: boolean;
 
   @Column({
-    type: DataType.TINYINT,
+    type: DataType.BOOLEAN,
     allowNull: false,
     defaultValue: false,
     field: "self_develop"
@@ -36,7 +36,7 @@ export class Welfare extends Model {
   selfDevelop!: boolean;
 
   @Column({
-    type: DataType.TINYINT,
+    type: DataType.BOOLEAN,
     allowNull: false,
     defaultValue: false
   })
