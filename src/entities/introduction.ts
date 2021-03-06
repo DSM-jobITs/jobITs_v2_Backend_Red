@@ -8,7 +8,6 @@ import {
   BelongsTo
 } from "sequelize-typescript";
 import { Enterprise } from "./enterprise";
-import { sequelize } from "../loaders/database";
 
 @Table
 export class Introduction extends Model {
@@ -43,9 +42,3 @@ export class Introduction extends Model {
   @BelongsTo(() => Enterprise, 'ent_no')
   enterprise!: Enterprise;
 }
-
-Introduction.init({}, {
-  sequelize,
-  tableName: 'introduction',
-  modelName: 'introduction'
-});
