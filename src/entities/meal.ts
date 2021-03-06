@@ -15,7 +15,7 @@ export class Meal extends Model {
   @ForeignKey(() => Recruit)
   @Column({
     type: DataType.STRING(30),
-    field: 'recruit_id'
+    field: "recruit_id"
   })
   recruitId!: number;
 
@@ -47,6 +47,6 @@ export class Meal extends Model {
   })
   salary!: boolean;
 
-  @BelongsTo(() => Recruit, 'recruit_id')
+  @BelongsTo(() => Recruit, "recruit_id")
   recruit!: Recruit;
 }
