@@ -11,7 +11,6 @@ import {
 import { Recruit } from "./recruit";
 import { Introduction } from "./introduction";
 import { Manager } from "./manager";
-import { sequelize } from "../loaders/database";
 
 @Table
 export class Enterprise extends Model {
@@ -65,9 +64,3 @@ export class Enterprise extends Model {
   @HasOne(() => Manager, 'ent_no')
   manager!: Manager;
 }
-
-Enterprise.init({}, {
-  sequelize,
-  tableName: 'enterprise',
-  modelName: 'enterprise'
-});
