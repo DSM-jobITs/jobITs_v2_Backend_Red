@@ -14,31 +14,31 @@ export class Introduction extends Model {
   @PrimaryKey
   @Column({
     type: DataType.STRING(30),
-    field: 'introduction_id'
+    field: "introduction_id"
   })
   introductionId!: number;
 
   @Column({
     type: DataType.STRING,
     allowNull: false,
-    field: 'original_name'
+    field: "original_name"
   })
   originalName!: string;
 
   @Column({
     type: DataType.STRING(50),
     allowNull: false,
-    field: 'file_uuid'
+    field: "file_uuid"
   })
   fileUuid!: string;
 
   @ForeignKey(() => Enterprise)
   @Column({
     type: DataType.STRING(12),
-    field: 'ent_no'
+    field: "ent_no"
   })
   entNo!: string;
 
-  @BelongsTo(() => Enterprise, 'ent_no')
+  @BelongsTo(() => Enterprise, "ent_no")
   enterprise!: Enterprise;
 }
