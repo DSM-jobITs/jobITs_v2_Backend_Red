@@ -21,9 +21,9 @@ export class RecruitService {
     // recruitResponse basic props
     this.recruitResponse.entName = recruitInfo.enterprise.name;
     this.recruitResponse.entNo = recruitInfo.entNo;
-    this.recruitResponse.deadline = recruitInfo.deadline;
-    this.recruitResponse.introduction = recruitInfo.enterprise.introduce;
-    this.recruitResponse.workContent = recruitInfo.detail;
+    this.recruitResponse.deadline = recruitInfo.deadline || null;
+    this.recruitResponse.introduction = recruitInfo.enterprise.introduce || null;
+    this.recruitResponse.workContent = recruitInfo.detail || null;
 
     // recruitResponse.qualification props
     let certificates: string[] | null = null;
@@ -45,14 +45,14 @@ export class RecruitService {
 
     this.recruitResponse.qualification = {
       certificate: certificates,
-      grade: recruitInfo.qualification.grade,
+      grade: recruitInfo.qualification.grade || null,
       specialty: specialties
     }
 
     // recruitResponse.workingConditions props
     this.recruitResponse.workingConditions = {
-      salary: recruitInfo.salary,
-      period: recruitInfo.period,
+      salary: recruitInfo.salary || null,
+      period: recruitInfo.period || null,
       meal: {
         breakfast: !!recruitInfo.meal.breakfast,
         lunch: !!recruitInfo.meal.lunch,
@@ -63,19 +63,19 @@ export class RecruitService {
         fourMajor: !!recruitInfo.welfare.fourMajor,
         selfDevelop: !!recruitInfo.welfare.selfDevelop,
         laptop: !!recruitInfo.welfare.laptop,
-        etc: recruitInfo.welfare.etc
+        etc: recruitInfo.welfare.etc || null
       }
     };
 
     // recruitResponse.entInfo props
     this.recruitResponse.entInfo = {
-      numOfWorker: recruitInfo.enterprise.workers,
-      entPhone: recruitInfo.enterprise.phone,
-      entSales: recruitInfo.enterprise.sales,
-      address: recruitInfo.enterprise.address,
-      establishmentDate: recruitInfo.enterprise.establishmentDate,
-      startTime: recruitInfo.startTime,
-      endTime: recruitInfo.endTime
+      numOfWorker: recruitInfo.enterprise.workers || null,
+      entPhone: recruitInfo.enterprise.phone || null,
+      entSales: recruitInfo.enterprise.sales || null,
+      address: recruitInfo.enterprise.address || null,
+      establishmentDate: recruitInfo.enterprise.establishmentDate || null,
+      startTime: recruitInfo.startTime || null,
+      endTime: recruitInfo.endTime || null
     };
 
     // recruitResponse.other props
@@ -92,9 +92,9 @@ export class RecruitService {
     }
 
     this.recruitResponse.other = {
-      personnel: recruitInfo.personnel,
-      recruitPlan: recruitInfo.recruitPlan,
-      reception: recruitInfo.reception,
+      personnel: recruitInfo.personnel || null,
+      recruitPlan: recruitInfo.recruitPlan || null,
+      reception: recruitInfo.reception || null,
       file: files
     }
 
