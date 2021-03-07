@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { tryCatchMiddleware } from "../middlewares";
+import { authMiddleware, tryCatchMiddleware } from "../middlewares";
 import validate from "../middlewares/validation";
 import { RecruitController } from "../controllers";
 import { recruitIdSchema } from "../schemas";
@@ -13,6 +13,7 @@ export default (app: Router) => {
 
   router.get(
     '/:recruitId',
+    authMiddleware,
     validate({ schema: recruitIdSchema }),
     tryCatchMiddleware.Error(recuritController.getRecuritInfoById)
   );
