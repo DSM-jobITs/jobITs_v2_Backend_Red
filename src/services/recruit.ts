@@ -1,6 +1,9 @@
 import { RecruitRepository } from "../repositories";
 import { RecuritNotFound } from "../exception";
-import { getRecruitResponse } from "../interfaces";
+import {
+  getRecruitResponse,
+  Other
+} from "../interfaces";
 import config from "../config";
 
 export class RecruitService {
@@ -23,71 +26,76 @@ export class RecruitService {
     this.recruitResponse.workContent = recruitInfo.detail;
 
     // recruitResponse.qualification props
+    let certificates: string[] | null = null;
+    let specialties: string[] | null = null;
+
     if (recruitInfo.qualification.certificates.length) {
-      this.recruitResponse.qualification.certificate = [];
+      certificates = [];
       for (let i = 0; i < recruitInfo.qualification.certificates.length; i++) {
-        this.recruitResponse.qualification.certificate.push(recruitInfo.qualification.certificates[i]["certificate"]);
+        certificates.push(recruitInfo.qualification.certificates[i].certificate);
       }
-    } else {
-      this.recruitResponse.qualification.certificate = null;
+    }
+ 
+    if (recruitInfo.qualification.specialties.length) {
+      specialties = [];
+      for (let i = 0; i < recruitInfo.qualification.specialties.length; i++) {
+        specialties.push(recruitInfo.qualification.specialties[i].specialty);
+      }
     }
 
-    this.recruitResponse.qualification.grade = recruitInfo.qualification.grade;
-    
-    if (recruitInfo.qualification.specialties.length) {
-      this.recruitResponse.qualification.specialty = [];
-      for (let i = 0; i < recruitInfo.qualification.specialties.length; i++) {
-        this.recruitResponse.qualification.specialty.push(recruitInfo.qualification.specialties[i]["specialty"]);
-      }
-    } else {
-      this.recruitResponse.qualification.specialty = null;
+    this.recruitResponse.qualification = {
+      certificate: certificates,
+      grade: recruitInfo.qualification.grade,
+      specialty: specialties
     }
 
     // recruitResponse.workingConditions props
-    this.recruitResponse.workingConditions.salary = recruitInfo.salary;
-    this.recruitResponse.workingConditions.period = recruitInfo.period;
-    
-    // recruitResponse.workingConditoins.meal props
-    this.recruitResponse.workingConditions.meal = {
-      breakfast: !!recruitInfo.meal.breakfast,
-      lunch: !!recruitInfo.meal.lunch,
-      dinner: !!recruitInfo.meal.dinner,
-      includeSalary: !!recruitInfo.meal.salary
-    };
-
-    // recruitResponse.workingConditions.welfare props
-    this.recruitResponse.workingConditions.welfare = {
-      fourMajor: !!recruitInfo.welfare.fourMajor,
-      selfDevelop: !!recruitInfo.welfare.selfDevelop,
-      laptop: !!recruitInfo.welfare.laptop,
-      etc: recruitInfo.welfare.etc
+    this.recruitResponse.workingConditions = {
+      salary: recruitInfo.salary,
+      period: recruitInfo.period,
+      meal: {
+        breakfast: !!recruitInfo.meal.breakfast,
+        lunch: !!recruitInfo.meal.lunch,
+        dinner: !!recruitInfo.meal.dinner,
+        includeSalary: !!recruitInfo.meal.salary
+      },
+      welfare: {
+        fourMajor: !!recruitInfo.welfare.fourMajor,
+        selfDevelop: !!recruitInfo.welfare.selfDevelop,
+        laptop: !!recruitInfo.welfare.laptop,
+        etc: recruitInfo.welfare.etc
+      }
     };
 
     // recruitResponse.entInfo props
-    this.recruitResponse.entInfo.numOfWorker = recruitInfo.enterprise.workers;
-    this.recruitResponse.entInfo.entPhone = recruitInfo.enterprise.phone;
-    this.recruitResponse.entInfo.entSales = recruitInfo.enterprise.sales;
-    this.recruitResponse.entInfo.address = recruitInfo.enterprise.address;
-    this.recruitResponse.entInfo.establishmentDate = recruitInfo.enterprise.establishmentDate;
-    this.recruitResponse.entInfo.startTime = recruitInfo.startTime;
-    this.recruitResponse.entInfo.endTime = recruitInfo.endTime;
+    this.recruitResponse.entInfo = {
+      numOfWorker: recruitInfo.enterprise.workers,
+      entPhone: recruitInfo.enterprise.phone,
+      entSales: recruitInfo.enterprise.sales,
+      address: recruitInfo.enterprise.address,
+      establishmentDate: recruitInfo.enterprise.establishmentDate,
+      startTime: recruitInfo.startTime,
+      endTime: recruitInfo.endTime
+    };
 
     // recruitResponse.other props
-    this.recruitResponse.other.personnel = recruitInfo.personnel;
-    this.recruitResponse.other.recruitPlan = recruitInfo.recruitPlan;
-    this.recruitResponse.other.reception = recruitInfo.reception;
+    let files: Other.File.FileObject[] | null = null;
 
-    // recruitResponse.other.file props
     if (recruitInfo.enterprise.introductions.length) {
-      this.recruitResponse.other.file = [];
+      files = [];
       for (let i = 0; i < recruitInfo.enterprise.introductions.length; i++) {
-        this.recruitResponse.other.file.push({
+        files.push({
           name: recruitInfo.enterprise.introductions[i].originalName,
           url: config.s3.bucketUrl + recruitInfo.enterprise.introductions[i].fileUuid
         });
       }
-    } else {
-      this.recruitResponse.other.file = null;
+    }
+
+    this.recruitResponse.other = {
+      personnel: recruitInfo.personnel,
+      recruitPlan: recruitInfo.recruitPlan,
+      reception: recruitInfo.reception,
+      file: files
     }
 
     return this.recruitResponse;
