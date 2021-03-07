@@ -44,7 +44,7 @@ export class RecruitRepository {
             {
               model: Introduction,
               required: false,
-              attributes: [["original_name", "name"], ["file_uuid", "url"]]
+              attributes: [["original_name", "originalName"], ["file_uuid", "fileUuid"]]
             }
           ]
         },
