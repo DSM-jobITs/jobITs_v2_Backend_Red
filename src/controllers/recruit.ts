@@ -10,6 +10,7 @@ export class RecruitController {
     next: NextFunction
   ) {
     const recruitId = req.params.recruitId;
+
     const recruitInfo = await new RecruitService(
       new RecruitRepository(),
       {} as getRecruitResponse
