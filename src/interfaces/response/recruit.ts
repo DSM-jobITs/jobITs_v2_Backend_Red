@@ -44,9 +44,9 @@ namespace EntInfo {
   }
 }
 
-namespace Other {
+export namespace Other {
   type OtherKey = "personnel" | "recruitPlan" | "reception" | "file";
-  namespace File {
+  export namespace File {
     type FileKey = "name" | "url";
     export type FileObject = {
       [key in FileKey]: string;
@@ -54,6 +54,6 @@ namespace Other {
   }
 
   export type OtherObject = {
-    [name in OtherKey]: number | boolean | string | (Array<File.FileObject> | null);
+    [name in OtherKey]: number | boolean | string | (File.FileObject[] | null);
   }
 }
