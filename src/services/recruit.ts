@@ -1,5 +1,5 @@
 import { RecruitRepository } from "../repositories";
-import { RecuritNotFound } from "../exception";
+import { RecruitNotFound } from "../exception";
 import {
   getRecruitResponse,
   Other
@@ -15,7 +15,7 @@ export class RecruitService {
   public async getRecruitInfoById(recruitId: string): Promise<object> {
     const recruitInfo = await this.recruitRepository.getRecruitInfoById(recruitId);
     if (!recruitInfo) {
-      throw RecuritNotFound;
+      throw RecruitNotFound;
     }
 
     // recruitResponse basic props
