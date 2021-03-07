@@ -4,7 +4,6 @@ import {
   getRecruitResponse,
   Other
 } from "../interfaces";
-import config from "../config";
 
 export class RecruitService {
   constructor(
@@ -86,7 +85,7 @@ export class RecruitService {
       for (let i = 0; i < recruitInfo.enterprise.introductions.length; i++) {
         files.push({
           name: recruitInfo.enterprise.introductions[i].originalName,
-          url: config.s3.bucketUrl + recruitInfo.enterprise.introductions[i].fileUuid
+          url: recruitInfo.enterprise.introductions[i].fileUuid
         });
       }
     }
