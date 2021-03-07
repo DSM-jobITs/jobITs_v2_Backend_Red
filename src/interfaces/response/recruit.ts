@@ -33,7 +33,7 @@ namespace WorkingConditions {
   }
 
   export type WorkingConditionsObject = {
-    [key in WorkingConditionsKey]: number | Meal.MealObject | Welfare.WelfareObject;
+    [key in WorkingConditionsKey]: number | Meal.MealObject | Welfare.WelfareObject | null;
   }
 }
 
