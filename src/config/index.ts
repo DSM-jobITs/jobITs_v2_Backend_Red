@@ -12,10 +12,9 @@ export default {
   },
   secertKey: process.env.JWT_SECERT || "",
   s3: {
-    name: process.env.S3_NAME || "",
+    name: process.env.S3_BUCKET_NAME || "",
     access: process.env.S3_ACCESS || "",
     secert: process.env.S3_SECERT || "",
     region: process.env.S3_REGION || "",
-    bucketUrl: process.env.S3_BUCKET_URL || ""
   }
 };
