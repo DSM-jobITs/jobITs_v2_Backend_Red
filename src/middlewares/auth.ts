@@ -1,7 +1,8 @@
 import { verify } from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
 import config from "../config";
-import { TokenRequired, ForbiddenToken } from "../exception";
+import { TokenRequired } from "../exception";
+import logger from "../loaders/logger";
 
 export const authMiddleware = (
   req: Request,
@@ -16,7 +17,8 @@ export const authMiddleware = (
   const bearer: string = token.split("Bearer ")[1];
   verify(bearer, config.secertKey, (err, decoded) => {
     if (err) {
-      next(ForbiddenToken);
+      logger.error(`403: ${err.message}`);
+      res.status(403).json({ message: "Forbidden Token" });
     }
 
     req["decoded"] = decoded;
