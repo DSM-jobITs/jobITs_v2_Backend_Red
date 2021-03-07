@@ -54,6 +54,6 @@ export namespace Other {
   }
 
   export type OtherObject = {
-    [name in OtherKey]: number | boolean | string | (File.FileObject[] | null);
+    [name in OtherKey]: number | boolean | string | File.FileObject[] | null;
   }
 }
