@@ -1,7 +1,6 @@
 import { Schema } from "joi";
 import { BadRequest } from "../exception";
 import { Request, Response, NextFunction } from "express";
-import logger from "../loaders/logger";
 
 export default ({
   schema
@@ -12,7 +11,6 @@ export default ({
     await schema.validateAsync(req.params);
     next();
   } catch (error) {
-    logger.error(error.message);
     next(BadRequest);
   }
 };
