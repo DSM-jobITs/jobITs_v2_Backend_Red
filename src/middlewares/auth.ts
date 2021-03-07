@@ -11,7 +11,7 @@ export const authMiddleware = (
 ) => {
   const token: string = req.headers.authorization || "";
   if (!token) {
-    next(TokenRequired);
+    return next(TokenRequired);
   }
 
   const bearer: string = token.split("Bearer ")[1];
