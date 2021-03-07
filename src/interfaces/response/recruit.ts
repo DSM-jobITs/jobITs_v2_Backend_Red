@@ -26,7 +26,7 @@ namespace WorkingConditions {
     }
   }
   namespace Welfare {
-    type WelfareKey = "fourMajor" | "selfDevelop" | "labtop" | "etc";
+    type WelfareKey = "fourMajor" | "selfDevelop" | "laptop" | "etc";
     export type WelfareObject = {
       [key in WelfareKey]: boolean | string;
     }
