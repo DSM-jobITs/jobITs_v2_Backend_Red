@@ -13,7 +13,7 @@ export interface getRecruitResponse {
 namespace Qualification {
   type QualificationKey = "certificate" | "grade" | "specialty";
   export type QualificationObject = {
-    [key in QualificationKey]: Array<string> | number | null;
+    [key in QualificationKey]: string[] | number | null;
   }
 }
 
@@ -28,7 +28,7 @@ namespace WorkingConditions {
   namespace Welfare {
     type WelfareKey = "fourMajor" | "selfDevelop" | "laptop" | "etc";
     export type WelfareObject = {
-      [key in WelfareKey]: boolean | string;
+      [key in WelfareKey]: boolean | string | null;
     }
   }
 
@@ -40,7 +40,7 @@ namespace WorkingConditions {
 namespace EntInfo {
   type EntInfoKey = "numOfWorker" | "entPhone" | "entSales" | "address" | "establishmentDate" | "startTime" | "endTime";
   export type EntInfoObject = {
-    [key in EntInfoKey]: number | string;
+    [key in EntInfoKey]: number | string | null;
   }
 }
 
@@ -49,7 +49,7 @@ export namespace Other {
   export namespace File {
     type FileKey = "name" | "url";
     export type FileObject = {
-      [key in FileKey]: string;
+      [key in FileKey]: string | null;
     }
   }
 
