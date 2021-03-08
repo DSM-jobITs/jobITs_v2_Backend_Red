@@ -5,7 +5,8 @@ COPY package*.json ./
 RUN npm install
 COPY ./ .
 
-RUN npm run build
+RUN npm i ts-node
+RUN npm i typescript
 
 EXPOSE 3001
 CMD ["npm", "start"]
