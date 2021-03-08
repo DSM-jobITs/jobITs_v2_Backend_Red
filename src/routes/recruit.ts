@@ -10,7 +10,7 @@ export default (app: Router) => {
   const recuritController: RecruitController = new RecruitController();
 
   app.use('/recruit/detail', router);
-
+  console.log('Get request successly.');
   router.get(
     '/:recruitId',
     authMiddleware,
