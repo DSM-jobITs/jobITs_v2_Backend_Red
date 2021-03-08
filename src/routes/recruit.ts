@@ -12,7 +12,7 @@ export default (app: Router) => {
   app.use('/recruit', router);
 
   router.get(
-    '/:recruitId',
+    '/detail/:recruitId',
     authMiddleware,
     validate({ schema: recruitIdSchema }),
     tryCatchMiddleware.Error(recuritController.getRecuritInfoById)
