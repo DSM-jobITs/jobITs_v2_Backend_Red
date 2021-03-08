@@ -9,10 +9,10 @@ const router = Router();
 export default (app: Router) => {
   const recuritController: RecruitController = new RecruitController();
 
-  app.use('/recruit', router);
+  app.use('/recruit/detail', router);
 
   router.get(
-    '/detail/:recruitId',
+    '/:recruitId',
     authMiddleware,
     validate({ schema: recruitIdSchema }),
     tryCatchMiddleware.Error(recuritController.getRecuritInfoById)
