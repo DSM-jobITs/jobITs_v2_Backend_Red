@@ -1,13 +1,10 @@
 FROM node:14-slim
 
-COPY package*.json ./
-COPY tsconfig.json
+RUN mkdir -p /app
+WORKDIR /app
+ADD . /app
 
 RUN npm install
-COPY ./ .
-
-RUN npm i ts-node
-RUN npm i typescript
 
 EXPOSE 3001
 CMD ["npm", "start"]
