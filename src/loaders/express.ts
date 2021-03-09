@@ -10,7 +10,7 @@ export default (app: express.Application) => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
   app.use(morgan("dev"));
-  logger.info('success to connect loaders/expresss');
+
   app.use('/', router());
 
   app.use((req, res, next) => {

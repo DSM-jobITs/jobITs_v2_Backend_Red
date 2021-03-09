@@ -3,9 +3,7 @@ import recruit from "./recruit";
 
 export default () => {
   const app = Router();
-  app.use('/ping', (req, res, next) => {
-    res.send('pong');
-  });
+  console.log("get routing");
   recruit(app);
 
   return app;
