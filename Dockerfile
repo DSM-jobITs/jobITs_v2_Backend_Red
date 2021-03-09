@@ -1,6 +1,7 @@
 FROM node:14-slim
 
 COPY package*.json ./
+COPY tsconfig.json
 
 RUN npm install
 COPY ./ .
