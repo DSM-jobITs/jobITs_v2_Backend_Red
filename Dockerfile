@@ -1,8 +1,10 @@
 FROM node:14-slim
 
-RUN mkdir -p /app
 WORKDIR /app
-ADD . /app
+
+COPY package*.json ./
+COPY tsconfig.json ./
+COPY src /app/src
 
 RUN npm install
 
