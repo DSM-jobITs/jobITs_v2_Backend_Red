@@ -12,19 +12,19 @@ import { Student } from "./student";
 export class User extends Model {
   @PrimaryKey
   @Column({
-    type: DataType.STRING(15),
+    type: DataType.STRING(30),
     field: "user_id"
   })
   userId!: string;
 
   @Column({
-    type: DataType.STRING(50),
+    type: DataType.STRING(60),
     allowNull: false
   })
   password!: string;
 
   @Column({
-    type: DataType.STRING(5),
+    type: DataType.STRING(10),
     allowNull: false
   })
   name!: string;

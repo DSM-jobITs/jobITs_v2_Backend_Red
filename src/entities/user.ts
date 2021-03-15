@@ -4,16 +4,16 @@ import { sequelize } from "../loaders/database";
 
 User.init({
   userId: {
-    type: DataType.STRING(15),
+    type: DataType.STRING(30),
     primaryKey: true,
     field: "user_id"
   },
   password: {
-    type: DataType.STRING(50),
+    type: DataType.STRING(60),
     allowNull: false
   },
   name: {
-    type: DataType.STRING(5),
+    type: DataType.STRING(10),
     allowNull: false
   }
 }, {
