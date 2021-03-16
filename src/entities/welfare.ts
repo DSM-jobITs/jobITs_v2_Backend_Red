@@ -24,7 +24,8 @@ Welfare.init({
     type: DataType.BOOLEAN,
     allowNull: false,
     defaultValue: false
-  }
+  },
+  etc: DataType.STRING
 }, {
   sequelize,
   tableName: "welfare",
