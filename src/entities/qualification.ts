@@ -8,10 +8,7 @@ Qualification.init({
     primaryKey: true,
     field: "qualification_id"
   },
-  grade: {
-    type: DataType.INTEGER,
-    allowNull: false
-  },
+  grade: DataType.INTEGER,
   recruitId: {
     type: DataType.STRING(30),
     allowNull: false,

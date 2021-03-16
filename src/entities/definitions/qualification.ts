@@ -25,10 +25,7 @@ export class Qualification extends Model {
 
   @Min(1)
   @Max(100)
-  @Column({
-    type: DataType.INTEGER,
-    allowNull: false
-  })
+  @Column(DataType.INTEGER)
   grade!: number;
 
   @ForeignKey(() => Recruit)
