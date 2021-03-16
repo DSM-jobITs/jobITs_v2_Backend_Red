@@ -30,15 +30,6 @@ Recruit.init({
   },
   personnel: DataType.INTEGER,
   detail: DataType.STRING,
-  writing: {
-    type: DataType.BOOLEAN,
-    defaultValue: false
-  },
-  page: {
-    type: DataType.INTEGER,
-    allowNull: false,
-    defaultValue: 1
-  },
   entNo: {
     type: DataType.CHAR(12),
     allowNull: false,

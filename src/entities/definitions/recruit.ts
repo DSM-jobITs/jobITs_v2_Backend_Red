@@ -64,19 +64,6 @@ export class Recruit extends Model {
   @Column(DataType.STRING)
   detail!: string;
 
-  @Column({
-    type: DataType.BOOLEAN,
-    defaultValue: false
-  })
-  writing!: boolean;
-
-  @Column({
-    type: DataType.INTEGER,
-    allowNull: false,
-    defaultValue: 1
-  })
-  page!: number;
-
   @ForeignKey(() => Enterprise)
   @Column({
     type: DataType.CHAR(12),
