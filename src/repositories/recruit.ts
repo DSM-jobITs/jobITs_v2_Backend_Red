@@ -55,12 +55,12 @@ export class RecruitRepository {
           include: [
             {
               model: Certificate,
-              required: true,
+              required: false,
               attributes: ["certificate"]
             },
             {
               model: Specialty,
-              required: true,
+              required: false,
               attributes: ["specialty"]
             }
           ]
