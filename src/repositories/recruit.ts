@@ -50,7 +50,7 @@ export class RecruitRepository {
         },
         {
           model: Qualification,
-          required: false,
+          required: true,
           attributes: ["grade"],
           include: [
             {
