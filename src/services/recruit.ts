@@ -26,7 +26,6 @@ export class RecruitService {
 
     // recruitResponse.qualification props
     let certificates: string[] | null = null;
-    let specialties: string[] | null = null;
 
     if (recruitInfo.qualification.certificates.length) {
       certificates = [];
@@ -34,18 +33,11 @@ export class RecruitService {
         certificates.push(recruitInfo.qualification.certificates[i].certificate);
       }
     }
- 
-    if (recruitInfo.qualification.specialties.length) {
-      specialties = [];
-      for (let i = 0; i < recruitInfo.qualification.specialties.length; i++) {
-        specialties.push(recruitInfo.qualification.specialties[i].specialty);
-      }
-    }
 
     this.recruitResponse.qualification = {
       certificate: certificates,
       grade: recruitInfo.qualification.grade || null,
-      specialty: specialties
+      specialty: recruitInfo.qualification.specialty || null
     }
 
     // recruitResponse.workingConditions props

@@ -13,7 +13,7 @@ export interface getRecruitResponse {
 namespace Qualification {
   type QualificationKey = "certificate" | "grade" | "specialty";
   export type QualificationObject = {
-    [key in QualificationKey]: string[] | number | null;
+    [key in QualificationKey]: string[] | number | string | null;
   }
 }
 
