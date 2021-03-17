@@ -3,7 +3,6 @@ import {
   Welfare,
   Meal,
   Qualification,
-  Specialty,
   Certificate,
   Enterprise,
   Introduction
@@ -51,17 +50,12 @@ export class RecruitRepository {
         {
           model: Qualification,
           required: true,
-          attributes: ["grade"],
+          attributes: ["grade", "specialty"],
           include: [
             {
               model: Certificate,
               required: false,
               attributes: ["certificate"]
-            },
-            {
-              model: Specialty,
-              required: false,
-              attributes: ["specialty"]
             }
           ]
         },

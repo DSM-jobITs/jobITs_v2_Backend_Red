@@ -12,7 +12,6 @@ import {
 } from "sequelize-typescript";
 import { Recruit } from "./recruit";
 import { Certificate } from "./certificate";
-import { Specialty } from "./specialty";
 
 @Table
 export class Qualification extends Model {
@@ -28,6 +27,9 @@ export class Qualification extends Model {
   @Column(DataType.INTEGER)
   grade!: number;
 
+  @Column(DataType.STRING)
+  specialty!: string;
+
   @ForeignKey(() => Recruit)
   @Column({
     type: DataType.STRING(30),
@@ -38,9 +40,6 @@ export class Qualification extends Model {
 
   @HasMany(() => Certificate, "qualification_id")
   certificates!: Certificate[];
-
-  @HasMany(() => Specialty, "qualification_id")
-  specialties!: Specialty[];
 
   @BelongsTo(() => Recruit, "recruit_id")
   recruit!: Recruit;

@@ -9,6 +9,7 @@ Qualification.init({
     field: "qualification_id"
   },
   grade: DataType.INTEGER,
+  specialty: DataType.STRING,
   recruitId: {
     type: DataType.STRING(30),
     allowNull: false,

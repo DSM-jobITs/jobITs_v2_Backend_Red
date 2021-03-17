@@ -6,7 +6,6 @@ import { Manager } from "./manager";
 import { Meal } from "./meal";
 import { Qualification } from "./qualification";
 import { Recruit } from "./recruit";
-import { Specialty } from "./specialty";
 import { Student } from "./student";
 import { User } from "./user";
 import { Welfare } from "./welfare";
@@ -110,17 +109,6 @@ Certificate.belongsTo(Qualification, {
   onDelete: "CASCADE"
 });
 
-Qualification.hasMany(Specialty, {
-  foreignKey: "qualification_id",
-  onUpdate: "CASCADE",
-  onDelete: "CASCADE"
-});
-Specialty.belongsTo(Qualification, {
-  foreignKey: "qualification_id",
-  onUpdate: "CASCADE",
-  onDelete: "CASCADE"
-});
-
 export {
   Certificate,
   Depart,
@@ -130,7 +118,6 @@ export {
   Meal,
   Qualification,
   Recruit,
-  Specialty,
   Student,
   User,
   Welfare

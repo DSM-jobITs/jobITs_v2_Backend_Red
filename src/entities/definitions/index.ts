@@ -6,7 +6,6 @@ export * from "./manager";
 export * from "./meal";
 export * from "./qualification";
 export * from "./recruit";
-export * from "./specialty";
 export * from "./student";
 export * from "./user";
 export * from "./welfare";
