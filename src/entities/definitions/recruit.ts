@@ -7,7 +7,8 @@ import {
   ForeignKey,
   HasOne,
   BelongsTo,
-  AutoIncrement
+  AutoIncrement,
+  Unique
 } from "sequelize-typescript";
 import { Enterprise } from "./enterprise";
 import { Welfare } from "./welfare";
@@ -20,6 +21,14 @@ export class Recruit extends Model {
   @AutoIncrement
   @Column({
     type: DataType.INTEGER,
+    field: "recruit_no"
+  })
+  recruitNo!: string;
+
+  @Unique
+  @Column({
+    type: DataType.STRING(30),
+    allowNull: false,
     field: "recruit_id"
   })
   recruitId!: string;

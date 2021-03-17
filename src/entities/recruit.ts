@@ -3,10 +3,16 @@ import { DataType } from "sequelize-typescript";
 import { sequelize } from "../loaders/database";
 
 Recruit.init({
-  recruitId: {
+  recruitNo: {
     type: DataType.INTEGER,
     primaryKey: true,
     autoIncrement: true,
+    field: "recruit_no"
+  },
+  recruitId: {
+    type: DataType.STRING(30),
+    allowNull: false,
+    unique: true,
     field: "recruit_id"
   },
   reception: DataType.CHAR(10),
