@@ -6,7 +6,8 @@ import {
   PrimaryKey,
   ForeignKey,
   HasOne,
-  BelongsTo
+  BelongsTo,
+  AutoIncrement
 } from "sequelize-typescript";
 import { Enterprise } from "./enterprise";
 import { Welfare } from "./welfare";
@@ -16,8 +17,9 @@ import { Qualification } from "./qualification";
 @Table
 export class Recruit extends Model {
   @PrimaryKey
+  @AutoIncrement
   @Column({
-    type: DataType.STRING(30),
+    type: DataType.INTEGER,
     field: "recruit_id"
   })
   recruitId!: string;

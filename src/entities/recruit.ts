@@ -4,8 +4,9 @@ import { sequelize } from "../loaders/database";
 
 Recruit.init({
   recruitId: {
-    type: DataType.STRING(30),
+    type: DataType.INTEGER,
     primaryKey: true,
+    autoIncrement: true,
     field: "recruit_id"
   },
   reception: DataType.CHAR(10),
