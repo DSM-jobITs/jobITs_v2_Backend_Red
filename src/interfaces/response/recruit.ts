@@ -1,7 +1,7 @@
 export interface getRecruitResponse {
   entName: string;
   entNo: string;
-  deadline: string | null;
+  deadline: string;
   introduction: string | null;
   workContent: string | null;
   qualification: Qualification.QualificationObject;
