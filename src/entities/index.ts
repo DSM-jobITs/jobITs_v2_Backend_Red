@@ -67,22 +67,26 @@ Introduction.belongsTo(Enterprise, {
 
 Recruit.hasOne(Welfare, {
   foreignKey: "recruit_id",
+  sourceKey: "recruitId",
   onUpdate: "CASCADE",
   onDelete: "CASCADE"
 });
 Welfare.belongsTo(Recruit, {
   foreignKey: "recruit_id",
+  targetKey: "recruitId",
   onUpdate: "CASCADE",
   onDelete: "CASCADE"
 });
 
 Recruit.hasOne(Meal, {
   foreignKey: "recruit_id",
+  sourceKey: "recruitId",
   onUpdate: "CASCADE",
   onDelete: "CASCADE"
 });
 Meal.belongsTo(Recruit, {
   foreignKey: "recruit_id",
+  targetKey: "recruitId",
   onUpdate: "CASCADE",
   onDelete: "CASCADE"
 });
