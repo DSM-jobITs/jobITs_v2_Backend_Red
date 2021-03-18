@@ -64,7 +64,7 @@ export class RecruitService {
       entPhone: recruitInfo.enterprise.phone || null,
       entSales: recruitInfo.enterprise.sales || null,
       address: recruitInfo.enterprise.address || null,
-      establishmentDate: recruitInfo.enterprise.establishmentDate || null,
+      establishmentDate: recruitInfo.enterprise.establishmentDate,
       startTime: recruitInfo.startTime || null,
       endTime: recruitInfo.endTime || null
     };
