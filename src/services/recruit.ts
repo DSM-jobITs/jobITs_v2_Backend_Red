@@ -84,7 +84,7 @@ export class RecruitService {
 
     this.recruitResponse.other = {
       personnel: recruitInfo.personnel || null,
-      recruitPlan: recruitInfo.recruitPlan || null,
+      recruitPlan: !!recruitInfo.recruitPlan,
       reception: recruitInfo.reception,
       file: files
     }
