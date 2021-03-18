@@ -20,7 +20,7 @@ export class RecruitService {
     // recruitResponse basic props
     this.recruitResponse.entName = recruitInfo.enterprise.name;
     this.recruitResponse.entNo = recruitInfo.entNo;
-    this.recruitResponse.deadline = recruitInfo.deadline || null;
+    this.recruitResponse.deadline = recruitInfo.deadline;
     this.recruitResponse.introduction = recruitInfo.enterprise.introduce || null;
     this.recruitResponse.workContent = recruitInfo.detail || null;
 
