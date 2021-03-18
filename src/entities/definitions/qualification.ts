@@ -8,7 +8,8 @@ import {
   Min,
   Max,
   HasMany,
-  BelongsTo
+  BelongsTo,
+  Unique
 } from "sequelize-typescript";
 import { Recruit } from "./recruit";
 import { Certificate } from "./certificate";
@@ -31,6 +32,7 @@ export class Qualification extends Model {
   specialty!: string;
 
   @ForeignKey(() => Recruit)
+  @Unique
   @Column({
     type: DataType.STRING(30),
     allowNull: false,
