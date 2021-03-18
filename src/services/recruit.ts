@@ -22,7 +22,7 @@ export class RecruitService {
     this.recruitResponse.entNo = recruitInfo.entNo;
     this.recruitResponse.deadline = recruitInfo.deadline;
     this.recruitResponse.introduction = recruitInfo.enterprise.introduce;
-    this.recruitResponse.workContent = recruitInfo.detail || null;
+    this.recruitResponse.workContent = recruitInfo.detail;
 
     // recruitResponse.qualification props
     let certificates: string[] | null = null;
