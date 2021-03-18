@@ -60,7 +60,7 @@ export class RecruitService {
 
     // recruitResponse.entInfo props
     this.recruitResponse.entInfo = {
-      numOfWorker: recruitInfo.enterprise.workers || null,
+      numOfWorker: recruitInfo.enterprise.workers,
       entPhone: recruitInfo.enterprise.phone,
       entSales: recruitInfo.enterprise.sales || null,
       address: recruitInfo.enterprise.address || null,
