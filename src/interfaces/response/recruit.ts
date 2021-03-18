@@ -49,7 +49,7 @@ export namespace Other {
   export namespace File {
     type FileKey = "name" | "url";
     export type FileObject = {
-      [key in FileKey]: string | null;
+      [key in FileKey]: string | boolean | null;
     }
   }
 
