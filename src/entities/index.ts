@@ -89,11 +89,13 @@ Meal.belongsTo(Recruit, {
 
 Recruit.hasOne(Qualification, {
   foreignKey: "recruit_id",
+  sourceKey: "recruitId",
   onUpdate: "CASCADE",
   onDelete: "CASCADE"
 });
 Qualification.belongsTo(Recruit, {
   foreignKey: "recruit_id",
+  targetKey: "recruitId",
   onUpdate: "CASCADE",
   onDelete: "CASCADE"
 });

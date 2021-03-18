@@ -13,6 +13,7 @@ Qualification.init({
   recruitId: {
     type: DataType.STRING(30),
     allowNull: false,
+    unique: true,
     field: "recruit_id"
   }
 }, {
