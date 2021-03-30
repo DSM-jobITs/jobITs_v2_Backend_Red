@@ -8,17 +8,20 @@ Manager.init({
     primaryKey: true,
     field: "ent_no"
   },
-  rank: {
+  managerRank: {
     type: DataType.STRING(20),
-    allowNull: false
+    allowNull: false,
+    field: "manager_rank"
   },
-  phone: {
+  managerPhone: {
     type: DataType.CHAR(14),
-    allowNull: false
+    allowNull: false,
+    field: "manager_phone"
   },
-  email: {
+  managerEmail: {
     type: DataType.STRING(30),
-    allowNull: false
+    allowNull: false,
+    field: "manager_email"
   }
 }, {
   sequelize,

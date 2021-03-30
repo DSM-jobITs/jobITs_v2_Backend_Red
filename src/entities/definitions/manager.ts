@@ -22,23 +22,26 @@ export class Manager extends Model {
 
   @Column({
     type: DataType.STRING(20),
-    allowNull: false
+    allowNull: false,
+    field: "manager_rank"
   })
-  rank!: string;
+  managerRank!: string;
 
   @Column({
     type: DataType.CHAR(14),
-    allowNull: false
+    allowNull: false,
+    field: "manager_phone"
   })
   @IsMobilePhone("ko-KR")
-  phone!: string;
+  managerPhone!: string;
 
   @Column({
     type: DataType.STRING(30),
-    allowNull: false
+    allowNull: false,
+    field: "manager_email"
   })
   @IsEmail()
-  email!: string;
+  managerEmail!: string;
 
   @BelongsTo(() => Enterprise, "ent_no")
   enterprise!: Enterprise;
