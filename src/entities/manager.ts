@@ -22,6 +22,10 @@ Manager.init({
     type: DataType.STRING(30),
     allowNull: false,
     field: "manager_email"
+  },
+  managerName: {
+    type: DataType.STRING(5),
+    allowNull: false
   }
 }, {
   sequelize,

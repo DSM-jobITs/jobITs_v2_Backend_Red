@@ -43,6 +43,12 @@ export class Manager extends Model {
   @IsEmail()
   managerEmail!: string;
 
+  @Column({
+    type: DataType.STRING(5),
+    allowNull: false
+  })
+  managerName!: string;
+
   @BelongsTo(() => Enterprise, "ent_no")
   enterprise!: Enterprise;
 }
