@@ -11,11 +11,8 @@ import { Student } from "./student";
 @Table
 export class User extends Model {
   @PrimaryKey
-  @Column({
-    type: DataType.STRING(30),
-    field: "user_id"
-  })
-  userId!: string;
+  @Column(DataType.STRING(30))
+  id!: string;
 
   @Column({
     type: DataType.STRING(60),

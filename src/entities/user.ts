@@ -3,10 +3,9 @@ import { DataType } from "sequelize-typescript";
 import { sequelize } from "../loaders/database";
 
 User.init({
-  userId: {
+  id: {
     type: DataType.STRING(30),
-    primaryKey: true,
-    field: "user_id"
+    primaryKey: true
   },
   password: {
     type: DataType.STRING(60),
