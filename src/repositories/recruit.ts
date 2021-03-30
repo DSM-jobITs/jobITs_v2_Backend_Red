@@ -15,6 +15,7 @@ export class RecruitRepository {
         ["ent_no", "entNo"],
         "deadline",
         "detail",
+        "allowance",
         "salary",
         "period",
         ["start_time", "startTime"],
