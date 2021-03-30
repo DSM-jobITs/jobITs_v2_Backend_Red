@@ -18,7 +18,7 @@ namespace Qualification {
 }
 
 namespace WorkingConditions {
-  type WorkingConditionsKey = "salary" | "period" | "meal" | "welfare";
+  type WorkingConditionsKey = "allowance" | "salary" | "period" | "meal" | "welfare";
   namespace Meal {
     type MealKey = "breakfast" | "lunch" | "dinner" | "includeSalary";  
     export type MealObject = {
