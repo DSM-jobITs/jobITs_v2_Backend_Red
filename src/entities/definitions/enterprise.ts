@@ -7,6 +7,7 @@ import {
   HasMany,
   HasOne,
   Min,
+  Default
 } from "sequelize-typescript";
 import { Recruit } from "./recruit";
 import { Introduction } from "./introduction";
@@ -42,6 +43,7 @@ export class Enterprise extends Model {
   @Column(DataType.STRING)
   introduce!: string;
 
+  @Default("정보통신업")
   @Column(DataType.STRING(50))
   sector!: string;
 
