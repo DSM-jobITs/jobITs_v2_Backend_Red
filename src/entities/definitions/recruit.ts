@@ -64,6 +64,9 @@ export class Recruit extends Model {
   salary!: number;
 
   @Column(DataType.INTEGER)
+  allowance!: number;
+
+  @Column(DataType.INTEGER)
   period!: number;
 
   @Column({

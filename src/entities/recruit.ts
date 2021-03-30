@@ -32,6 +32,7 @@ Recruit.init({
     defaultValue: "17:00"
   },
   salary: DataType.INTEGER,
+  allowance: DataType.INTEGER,
   period: DataType.INTEGER,
   expired: {
     type: DataType.BOOLEAN,
