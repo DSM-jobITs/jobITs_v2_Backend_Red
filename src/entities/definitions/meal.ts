@@ -3,6 +3,7 @@ import {
   DataType,
   Table,
   Column,
+  Default,
   PrimaryKey,
   ForeignKey,
   BelongsTo
@@ -19,31 +20,31 @@ export class Meal extends Model {
   })
   recruitId!: number;
 
+  @Default(false)
   @Column({
     type: DataType.BOOLEAN,
-    allowNull: false,
-    defaultValue: false
+    allowNull: false
   })
   breakfast!: boolean;
 
+  @Default(false)
   @Column({
     type: DataType.BOOLEAN,
-    allowNull: false,
-    defaultValue: false
+    allowNull: false
   })
   lunch!: boolean;
 
+  @Default(false)
   @Column({
     type: DataType.BOOLEAN,
-    allowNull: false,
-    defaultValue: false
+    allowNull: false
   })
   dinner!: boolean;
 
+  @Default(false)
   @Column({
     type: DataType.BOOLEAN,
-    allowNull: false,
-    defaultValue: false
+    allowNull: false
   })
   salary!: boolean;
 
