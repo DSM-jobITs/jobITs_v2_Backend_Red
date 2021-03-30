@@ -8,7 +8,8 @@ import {
   HasOne,
   BelongsTo,
   AutoIncrement,
-  Unique
+  Unique,
+  Default
 } from "sequelize-typescript";
 import { Enterprise } from "./enterprise";
 import { Welfare } from "./welfare";
@@ -45,17 +46,17 @@ export class Recruit extends Model {
   })
   recruitPlan!: boolean;
 
+  @Default("09:00")
   @Column({
     type: DataType.CHAR(5),
-    field: "start_time",
-    defaultValue: "09:00"
+    field: "start_time"
   })
   startTime!: string;
 
+  @Default("17:00")
   @Column({
     type: DataType.CHAR(5),
-    field: "end_time",
-    defaultValue: "17:00"
+    field: "end_time"
   })
   endTime!: string;
 

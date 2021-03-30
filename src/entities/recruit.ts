@@ -23,11 +23,13 @@ Recruit.init({
   },
   startTime: {
     type: DataType.CHAR(5),
-    field: "start_time"
+    field: "start_time",
+    defaultValue: "09:00"
   },
   endTime: {
     type: DataType.CHAR(5),
-    field: "end_time"
+    field: "end_time",
+    defaultValue: "17:00"
   },
   salary: DataType.INTEGER,
   period: DataType.INTEGER,
