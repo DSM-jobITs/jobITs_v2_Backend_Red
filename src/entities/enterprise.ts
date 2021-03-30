@@ -18,7 +18,10 @@ Enterprise.init({
   },
   sales: DataType.FLOAT,
   introduce: DataType.STRING,
-  sector: DataType.STRING(50),
+  sector: {
+    type: DataType.STRING(50),
+    defaultValue: "정보통신업"
+  },
   address: DataType.STRING(40),
   zipCode: {
     type: DataType.CHAR(5),
