@@ -63,8 +63,8 @@ export class Recruit extends Model {
   @Column(DataType.INTEGER)
   salary!: number;
 
-  @Column(DataType.INTEGER)
-  allowance!: number;
+  @Column(DataType.STRING(20))
+  allowance!: string;
 
   @Column(DataType.INTEGER)
   period!: number;
