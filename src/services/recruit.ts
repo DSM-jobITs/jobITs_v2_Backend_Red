@@ -42,7 +42,7 @@ export class RecruitService {
 
     // recruitResponse.workingConditions props
     this.recruitResponse.workingConditions = {
-      allowance: recruitInfo.allowance !== undefined ? recruitInfo.allowance : null,
+      allowance: recruitInfo.allowance,
       salary: recruitInfo.salary || null,
       period: recruitInfo.period || null,
       meal: {
