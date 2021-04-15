@@ -40,7 +40,7 @@ export class Enterprise extends Model {
   @Column(DataType.FLOAT)
   sales!: number;
 
-  @Column(DataType.STRING)
+  @Column(DataType.STRING(1000))
   introduce!: string;
 
   @Default("정보통신업")

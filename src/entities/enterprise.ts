@@ -17,7 +17,7 @@ Enterprise.init({
     field: "establishment_date"
   },
   sales: DataType.FLOAT,
-  introduce: DataType.STRING,
+  introduce: DataType.STRING(1000),
   sector: {
     type: DataType.STRING(50),
     defaultValue: "정보통신업"
