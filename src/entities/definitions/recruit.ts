@@ -60,8 +60,8 @@ export class Recruit extends Model {
   })
   endTime!: string;
 
-  @Column(DataType.INTEGER)
-  salary!: number;
+  @Column(DataType.STRING(20))
+  salary!: string;
 
   @Column({
     type: DataType.STRING(20),

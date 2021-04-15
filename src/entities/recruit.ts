@@ -31,7 +31,7 @@ Recruit.init({
     field: "end_time",
     defaultValue: "17:00"
   },
-  salary: DataType.INTEGER,
+  salary: DataType.STRING(20),
   allowance: {
     type: DataType.STRING(20),
     allowNull: false
