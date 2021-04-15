@@ -19,7 +19,7 @@ export class Certificate extends Model {
   certificateId!: string;
 
   @Column({
-    type: DataType.STRING(20),
+    type: DataType.STRING(40),
     allowNull: false
   })
   certificate!: string;

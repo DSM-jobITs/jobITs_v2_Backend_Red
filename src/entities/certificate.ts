@@ -9,7 +9,7 @@ Certificate.init({
     field: "certificate_id"
   },
   certificate: {
-    type: DataType.STRING(20),
+    type: DataType.STRING(40),
     allowNull: false
   },
   qualificationId: {
