@@ -1,6 +1,6 @@
 # JobITs version 2
 
-![image](https://user-images.githubusercontent.com/51042546/115099431-b6629680-9f70-11eb-848c-b4f3844f5be1.png)
+![image](https://user-images.githubusercontent.com/51042546/115099431-b6629680-9f70-11eb-848c-b4f3844f5be1.png)  
 기존에 1층 산학협력부 벽면에 붙이는 형식으로 공지되는 채용 의뢰의 불편한 점을 웹을 통해 해결하고자 하는 프로젝트입니다.
 
 ## Index
