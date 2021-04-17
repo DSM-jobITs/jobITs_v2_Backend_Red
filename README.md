@@ -23,6 +23,7 @@
 ### 맡은 역할
   - Express.js를 사용한 백엔드 구현
   - 등록된 채용 의뢰 정보 상세보기 구현
+  - 기여도: ![image](https://user-images.githubusercontent.com/51042546/115128508-36443b80-a019-11eb-8e6b-2161f2abd2c3.png)
 
 ### 실제 화면
 - 채용 의뢰 미리보기
