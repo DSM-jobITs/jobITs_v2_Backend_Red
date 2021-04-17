@@ -7,6 +7,7 @@
 - [기능](#기능)
   - [본 repository에서 제공하는 기능](#본-repository에서-제공하는-기능)
 - [사이트](#사이트)
+- [개발 일지 및 회고](#개발-일지-및-회고)
 
 ## 기능
 - 사용자 인증
@@ -23,3 +24,7 @@
 ## 사이트
   
 - 사용자 페이지 : <a href="https://dsm-jobits.com/" target="_blank">JobITs</a>
+
+## 개발 일지 및 회고
+
+- velog : <a href="https://velog.io/@shin0805/series/JobITs-%ED%9A%8C%EA%B3%A0%EB%A1%9D" target="_blank">JobITs 회고록</a>
