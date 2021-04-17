@@ -6,6 +6,7 @@
 ## Index
 - [기능](#기능)
   - [본 repository에서 제공하는 기능](#본-repository에서-제공하는-기능)
+- [사이트](#사이트)
 
 ## 기능
 - 사용자 인증
@@ -18,3 +19,7 @@
   - 기존에 등록된 채용 의뢰의 수정/삭제
 ### 본 repository에서 제공하는 기능
   - 등록된 채용 의뢰 조회
+
+## 사이트
+  
+- 사용자 페이지 : <a href="https://dsm-jobits.com/" target="_blank">JobITs</a>
